@@ -2,8 +2,8 @@
 
 function App() {
   return (
-    <div className="App">
-      <h1>Happy coding</h1>
+    <div class="w-[450px] h-[450px] bg-orange-600">
+      <h1 class="text-green-700">Happy coding</h1>
     </div>
   );
 }
