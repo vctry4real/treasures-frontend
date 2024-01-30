@@ -1,5 +1,3 @@
-
-
 function App() {
   return (
     <div class="w-[450px] h-[450px] bg-skin-primary">

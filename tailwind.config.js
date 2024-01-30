@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ['./src/**/*.{html,js}'],
   theme: {
     extend: {
       backgroundColor: {
         skin: {
           primary: 'var(--bg-primary)',
           orange: 'var(--bg-secondary)',
-        }
+        },
       },
       textColor: {
         color: {
-          gray:'var(--text-white-bg)',
-          white: 'var(--text-colored-bg)'
-        }
+          gray: 'var(--text-white-bg)',
+          white: 'var(--text-colored-bg)',
+        },
       },
       fontSize: {
         sm: ['14px', '20px'],
@@ -36,14 +36,14 @@ module.exports = {
         black: '900',
       },
       button: {
-        btn : {
+        btn: {
           primary: 'var(--bg-primary)',
           secondary: 'var(--bg-secondary)',
         },
         btnHover: {
-          lightGreen:'var(--color-button-hover)',
-        }
-      }
+          lightGreen: 'var(--color-button-hover)',
+        },
+      },
     },
   },
 };

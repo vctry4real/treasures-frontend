@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --color-primary:#003B3B;
-    --color-secondary:#F8B400;
-    --bg-primary:#003B3B;
-    --bg-secondary:#F8B400;
-    --text-white-bg:#4A5568;
-    --text-colored-bg:#ffff;
-    --color-button-primary:#003B3B;
-    --color-button-secondary:#F8B400;
-    --color-button-hover:#7FAAAA;
+    --color-primary: #003b3b;
+    --color-secondary: #f8b400;
+    --bg-primary: #003b3b;
+    --bg-secondary: #f8b400;
+    --text-white-bg: #4a5568;
+    --text-colored-bg: #ffff;
+    --color-button-primary: #003b3b;
+    --color-button-secondary: #f8b400;
+    --color-button-hover: #7faaaa;
   }
-} 
+}
