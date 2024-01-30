@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-primary:#003B3B;
+    --color-secondary:#F8B400;
+    --bg-primary:#003B3B;
+    --bg-secondary:#F8B400;
+    --text-white-bg:#4A5568;
+    --text-colored-bg:#ffff;
+    --color-button-primary:#003B3B;
+    --color-button-secondary:#F8B400;
+    --color-button-hover:#7FAAAA;
+  }
+} 

@@ -4,32 +4,17 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
-      colors: {
-        green: {
-          100: '#F0FFF4',
-          200: '#C6F6D5',
-          300: '#9AE6B4',
-          400: '#68D391',
-          500: '#48BB78',
-          600: '#38A169',
-          700: '#2F855A',
-          800: '#276749',
-          900: '#22543D',
-        },
-        orange: {
-          100: '#FFFAF0',
-          200: '#FEEBC8',
-          300: '#FBD38D',
-          400: '#F6AD55',
-          500: '#ED8936',
-          600: '#DD6B20',
-          700: '#C05621',
-          800: '#9C4221',
-          900: '#7B341E',
-        },
+      backgroundColor: {
+        skin: {
+          primary: 'var(--bg-primary)',
+          orange: 'var(--bg-secondary)',
+        }
       },
-      fontFamily: {
-        'sans': ['"Proxima Nova"', 'Helvetica', 'Arial', 'sans-serif'],
+      textColor: {
+        color: {
+          gray:'var(--text-white-bg)',
+          white: 'var(--text-colored-bg)'
+        }
       },
       fontSize: {
         sm: ['14px', '20px'],
@@ -50,6 +35,15 @@ module.exports = {
         'extra-bold': '800',
         black: '900',
       },
+      button: {
+        btn : {
+          primary: 'var(--bg-primary)',
+          secondary: 'var(--bg-secondary)',
+        },
+        btnHover: {
+          lightGreen:'var(--color-button-hover)',
+        }
+      }
     },
   },
 };
