@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #003b3b;
+    --color-secondary: #f8b400;
+    --bg-primary: #003b3b;
+    --bg-secondary: #f8b400;
+    --text-white-bg: #4a5568;
+    --text-colored-bg: #ffff;
+    --color-button-primary: #003b3b;
+    --color-button-secondary: #f8b400;
+    --color-button-hover: #7faaaa;
+  }
+}
