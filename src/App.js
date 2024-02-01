@@ -1,8 +1,16 @@
+import {Route, Routes} from 'react-router-dom'
 import Registration from './components/Registration'
+import LandingPage from './pages/LandingPage';
 function App() {
-  return (
-    <Registration/>
-  );
+  return(
+    <>
+      <Routes>
+        <Route path='/' element={<LandingPage/>}/>
+        <Route path='/registration' element={<Registration/>}></Route>
+        
+      </Routes>
+    </>
+  )
 }
 
 export default App;
