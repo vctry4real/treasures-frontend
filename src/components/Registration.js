@@ -3,7 +3,10 @@ import { useState } from "react";
 import TreasureLogo from "../assets/Treasure.svg";
 import { FaGoogle } from "react-icons/fa";
 
+
 const Registration = () => {
+
+    
 
     const [submitted, setSubmitted] = useState(false)
     const [password, setPassword] = useState("");
