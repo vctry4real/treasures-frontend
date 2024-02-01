@@ -1,0 +1,21 @@
+/* src/components/OnboardingCarousel.css */
+.onboarding-carousel {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .carousel-item {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Customizing the slick-dots style */
+  .slick-dots {
+    bottom: -30px;
+  }
+  
