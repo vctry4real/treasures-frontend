@@ -1,9 +1,16 @@
+import {Route, Routes} from 'react-router-dom'
+import Registration from './components/Registration'
+import LandingPage from './pages/LandingPage';
 function App() {
-  return (
-    <div class="w-[450px] h-[450px] bg-skin-primary">
-      <h1 class="text-color-white">Happy coding</h1>
-    </div>
-  );
+  return(
+    <>
+      <Routes>
+        <Route path='/' element={<LandingPage/>}/>
+        <Route path='/registration' element={<Registration/>}></Route>
+        
+      </Routes>
+    </>
+  )
 }
 
 export default App;

@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        skin: {
-          primary: 'var(--bg-primary)',
-          orange: 'var(--bg-secondary)',
-        },
+        primary: 'var(--color-primary)', // Corrected from --bg-primary
+        orange: 'var(--color-secondary)',
+        lightGreen: 'var(--color-button-hover)',
       },
+      
       textColor: {
         color: {
           gray: 'var(--text-white-bg)',
@@ -37,11 +37,9 @@ module.exports = {
       },
       button: {
         btn: {
-          primary: 'var(--bg-primary)',
-          secondary: 'var(--bg-secondary)',
-        },
-        btnHover: {
-          lightGreen: 'var(--color-button-hover)',
+          primary: 'var(--color-button-primary)',
+          secondary: 'var(--color-secondary)', // Corrected from --bg-secondary
+          hover: 'var(--color-button-hover)', // Include hover state directly in btn
         },
       },
     },
