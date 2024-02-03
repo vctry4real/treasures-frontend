@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { PublicApi } from '../api';
 import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
-
+import { useAlertContext } from '../providers/AlertProvider';
+import { useNavigate } from 'react-router-dom';
 const Signin = () => {
+  const { alert, showAlert } = useAlertContext();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -26,7 +29,8 @@ const Signin = () => {
     e.preventDefault();
     const { email, password } = formData;
     if (!email || !password) {
-      alert('Please fill in all fields.');
+      showAlert({ text: 'Please fill in all fields.', type: 'danger' });
+
       return;
     }
     try {
@@ -37,9 +41,12 @@ const Signin = () => {
       });
       if (status === 200) {
         console.log(data);
+        showAlert({ text: 'User authenticated', type: 'success' });
+        navigate('/dashboard');
       }
     } catch (error) {
       console.log(error.response.data.msg);
+      showAlert({ text: error.response.data.msg, type: 'danger' });
     }
   };
   return (

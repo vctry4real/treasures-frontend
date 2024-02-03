@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify';
 
 import { useAlertContext } from '../providers/AlertProvider';
 
-const Signup = () => {
+const Signup = ({ setAuthType }) => {
   const { showAlert } = useAlertContext();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -39,6 +39,7 @@ const Signup = () => {
       if (status === 201) {
         showAlert({ text: 'User created', type: 'success' });
         console.log('User created');
+        setAuthType(1);
       }
     } catch (error) {
       console.log(error);

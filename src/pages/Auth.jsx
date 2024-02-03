@@ -4,22 +4,22 @@ import GoogleAuth from '../components/GoogleAuth';
 import Signin from '../components/Signin';
 import Signup from '../components/Signup';
 import TreasureLogo from '../assets/Treasure.svg';
-// import { useGoogleAuth } from "./provider/GoogleAuthProvider";
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Alert from '../components/Alert';
 
 import { useAlertContext } from '../providers/AlertProvider';
 
 const Auth = () => {
-  const { alert } = useAlertContext();
-  // const { logout } = useGoogleAuth();
+  const { alert, showAlert } = useAlertContext();
+  const navigate = useNavigate();
   const [authType, setAuthType] = useState(1);
 
   const AuthForm = ({ type }) => {
     return (
       <AnimatePresence>
         {type === 0 ? (
-          <Signup key="signup" />
+          <Signup key="signup" {...{ setAuthType }} />
         ) : type === 1 ? (
           <Signin key="signin" />
         ) : (
@@ -32,11 +32,16 @@ const Auth = () => {
             className="text-blue-500 hover:underline cursor-pointer"
             onClick={() => setAuthType(type === 0 ? 1 : 0)}
           >
-            Register
+            {type === 0 ? 'Signin ' : 'Register'}
           </span>
         </span>
       </AnimatePresence>
     );
+  };
+
+  const handleNext = () => {
+    showAlert({ text: 'User authenticated', type: 'success' });
+    navigate('/dashboard');
   };
   return (
     <section className="bg-primary min-h-screen  md:grid md:grid-cols-2 gap-4">
@@ -51,16 +56,16 @@ const Auth = () => {
         layout
         className=" flex flex-col items-center justify-center "
       >
-        <CardWrapper className="p-6">
+        <CardWrapper className="p-6 w-[400px]">
           <AuthForm type={authType} />
+          <div className="flex items-center justify-center mt-4">
+            {' '}
+            -<p className="p-2">OR</p>-
+          </div>
+          <div className="w-full  flex justify-center gap-2">
+            <GoogleAuth handleNext={handleNext} />
+          </div>
         </CardWrapper>
-
-        <div className="w-full pt-8 flex justify-center gap-2">
-          <GoogleAuth />
-        </div>
-        {/* <button type="button" onClick={() => logout()}>
-      Logout
-    </button> */}
       </motion.div>
       {alert.show && <Alert {...alert} />}
     </section>
