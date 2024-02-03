@@ -1,6 +1,8 @@
 import React, { createContext, useContext } from 'react';
 import { googleLogout } from '@react-oauth/google';
 import { PublicApi } from '../api';
+import { useAlertContext } from './AlertProvider';
+import { useNavigate } from 'react-router-dom';
 
 const GoogleAuthContext = createContext({
   clientId: '',
@@ -9,6 +11,8 @@ const GoogleAuthContext = createContext({
 });
 
 const GoogleAuthProvider = ({ children }) => {
+  const { alert, showAlert } = useAlertContext();
+  const navigate = useNavigate();
   const clientId = process.env.REACT_APP_CLIENT_ID;
 
   const handleLoginSuccess = async (credentialResponse) => {
@@ -34,6 +38,8 @@ const GoogleAuthProvider = ({ children }) => {
         if (status === 200) {
           localStorage.setItem('accessToken', data.accessToken);
           localStorage.setItem('refreshToken', data.refreshToken);
+          showAlert({ text: 'User authenticated', type: 'success' });
+          navigate('/dashboard');
         }
       } catch (error) {
         console.error('Error sending credential to backend:', error);

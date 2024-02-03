@@ -11,8 +11,7 @@ import Alert from '../components/Alert';
 import { useAlertContext } from '../providers/AlertProvider';
 
 const Auth = () => {
-  const { alert, showAlert } = useAlertContext();
-  const navigate = useNavigate();
+  const { alert } = useAlertContext();
   const [authType, setAuthType] = useState(1);
 
   const AuthForm = ({ type }) => {
@@ -39,10 +38,6 @@ const Auth = () => {
     );
   };
 
-  const handleNext = () => {
-    showAlert({ text: 'User authenticated', type: 'success' });
-    navigate('/dashboard');
-  };
   return (
     <section className="bg-primary min-h-screen  md:grid md:grid-cols-2 gap-4">
       <div className="flex items-center justify-center ">
@@ -63,7 +58,7 @@ const Auth = () => {
             -<p className="p-2">OR</p>-
           </div>
           <div className="w-full  flex justify-center gap-2">
-            <GoogleAuth handleNext={handleNext} />
+            <GoogleAuth />
           </div>
         </CardWrapper>
       </motion.div>
