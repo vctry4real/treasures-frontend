@@ -26,10 +26,10 @@ const Registration = () => {
             <div className="w-full flex flex-col md:flex-row items-center justify-center">
                 <div className="w-full md:w-1/2 lg:w-1/3">
                     <img src={TreasureLogo} alt="Logo" className="w-full h-auto md:h-[1024px] lg:h-[768px]" />
-                </div>
+                </div> 
                 
                 {!submitted ?
-                    <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col items-center justify-center mt-8 md:mt-0 border bg-white rounded-lg p-8">
+                    <div className="w-full md:w-1/2 h-screen lg:w-2/3  flex flex-col items-center justify-center mt-8 md:mt-0 border bg-white rounded-lg p-8 ">
                         <h2 className="font-serif mb-1 text-gray-950 text-3xl font-bold tracking-wide">Sign Up</h2>
                         <p className="mb-5 font-serif text-gray-500">Enter the field below to get started</p>
                         
@@ -94,7 +94,9 @@ const Registration = () => {
                         <p className="mr-1">Already have an account?<a href="/login" className="text-green-600"> Login.</a></p>
                     </div> 
                 :
-                    <div className="w-full md:w-1/2 lg:w-2/3 flex flex-col items-center justify-center mt-8 md:mt-0 border bg-white rounded-lg p-8">
+
+                // User is already logged in, show profile information and options to edit or logout
+                    <div className="w-full md:w-1/2 h-screen lg:w-2/3 flex flex-col items-center justify-center mt-8 md:mt-0 border bg-white rounded-lg p-8">
                         <h2 className="font-serif mb-1 text-gray-950 text-3xl font-bold tracking-wide">Login Account</h2>
                         <p className="mb-5 font-serif text-gray-500">To get started on your health and happiness journey</p>
                     
