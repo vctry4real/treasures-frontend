@@ -14,11 +14,7 @@
     "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
-  "engines": {
-    "node": ">=18.19.0",
-    "npm": ">=10.2.4",
-    "yarn": "please-use-npm"
-  },
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
