@@ -3,13 +3,30 @@
 module.exports = {
   content: ['./src/**/*.{html,js}'],
   theme: {
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    },
+    
     extend: {
       backgroundColor: {
-        skin: {
-          primary: 'var(--bg-primary)',
-          orange: 'var(--bg-secondary)',
-        },
+        primary: 'var(--color-primary)', // Corrected from --bg-primary
+        orange: 'var(--color-secondary)',
+        lightGreen: 'var(--color-button-hover)',
       },
+      
       textColor: {
         color: {
           gray: 'var(--text-white-bg)',
@@ -37,13 +54,12 @@ module.exports = {
       },
       button: {
         btn: {
-          primary: 'var(--bg-primary)',
-          secondary: 'var(--bg-secondary)',
-        },
-        btnHover: {
-          lightGreen: 'var(--color-button-hover)',
+          primary: 'var(--color-button-primary)',
+          secondary: 'var(--color-secondary)', // Corrected from --bg-secondary
+          hover: 'var(--color-button-hover)', // Include hover state directly in btn
         },
       },
+      
     },
   },
 };
