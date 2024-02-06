@@ -211,7 +211,7 @@ const LandingPage = () => {
               <h2 className="w-[460px] h-[50px] font-bold text-4xl text-gray-900 text-center pt-1 mb-1 ">
                 Join Treasures Today
               </h2>
-              <h3 className="w-[460px] h-[80px] font-medium text-2xl text-gray-900 text-center pt-1 mb-3 md:w-[600px] md:h-auto ">
+              <h3 className="h-[80px] font-medium text-2xl text-gray-900 text-center pt-1 mb-3 md:w-[600px] md:h-auto ">
                 Ready to start your child's wellnes Journey
               </h3>
               <p className="w-[390px] h-[120px] font-medium text-[18px] text-center mt-4 md:w-[650px]" >
