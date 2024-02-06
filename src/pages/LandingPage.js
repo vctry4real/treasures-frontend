@@ -22,7 +22,7 @@ const LandingPage = () => {
     <>
     <NavBar />
     // Hero section 
-    <div className="w-full h-auto mt-[20px]  bg-white ">
+    <div className="w-full h-auto mt-[20px]  bg-white overflow-hidden ">
       
         <div className="flex flex-row gap-16 h-screen bg-zinc-200 items-center justify-center pt-[90px] ">
           <div className="flex flex-col bg-zinc-200 items-center justify-center ">
@@ -59,7 +59,7 @@ const LandingPage = () => {
 
          {/* cards Treasures  */}
 
-        <div  className="bg-white w-full flex flex-col items-center justify-center ">
+        <div  className="bg-white w-full flex flex-col items-center justify-center">
           <div className="flex flex-col m-6 ">
             <div className=" flex flex-col text-left">
               <h3 className="font-bold text-xl text-gray-900 text-left pt-8 md:text-center ">Empowering Parents</h3>
@@ -69,8 +69,8 @@ const LandingPage = () => {
           </div>
 
           {/* First card */} 
-          <div className="md:flex flex-row w-full ">
-            <div className="flex flex-col m-6 w-full h-[267px] rounded-md bg-gray-300 items-center justify-center">
+          <div className="md:flex flex-row items-center justify-center w-full ">
+            <div className="flex flex-col m-6  h-[267px] rounded-md bg-gray-300 items-center justify-center px-5">
               <div className="w-[340px] h-[96px] bg-gray-500 text-center rounded-md text-black">
                   Image Goes Here
               </div>
@@ -81,7 +81,7 @@ const LandingPage = () => {
             </div>
 
             {/* Second card */}
-            <div className="flex flex-col m-6 w-full h-[267px] rounded-md bg-gray-300 items-center justify-center">
+            <div className="flex flex-col m-6 h-[267px] rounded-md bg-gray-300 items-center justify-center px-5">
               <div className="w-[340px] h-[96px] bg-gray-500 text-center rounded-md text-black">
                   Image Goes Here
               </div>
@@ -189,7 +189,7 @@ const LandingPage = () => {
               
             </Swiper>
           </div>
-          <button className="flex items-center justify-center text-white bg-transparent rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4 text-md font-bold">Start your journer <span className="pl-2"><FaArrowRight /></span></button>
+          <button className="flex items-center justify-center text-white bg-transparent rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4 text-md font-bold md:w-full md:h-[60px] md:items-center">Start your Journey <span className="pl-2"><FaArrowRight /></span></button>
         </div>
         {/* End of key Features */}
 
@@ -230,7 +230,7 @@ const LandingPage = () => {
               <h2 className="font-bold text-xl text-gray-900 pt-8 md:text-center">Testimonies</h2>
               <h3 className="font-medium text-md text-gray-900 pt-2 md:text-center">Treasured by Parents, Loved by Experts</h3>
               <p className="font-light text-[18px] text-left pt-4 tracking-wide text-gray-900  md:text-center">
-                See what parents and healthcare professionals are saying about Treasures. Real stories, real impact.
+                See what Parents, Primary and Secondary Schools administrators and Healthcare Professionals are saying about Treasures.
               </p>
             </div>
             <div className="flex flex-col w-full h-auto items-center justify-center bg-gray-200 mt-3 mb-8 rounded-xl">
@@ -245,7 +245,7 @@ const LandingPage = () => {
                 onSlideChange={() => console.log('slide change')}
               >
                 <SwiperSlide>
-                  <div className="w-full md:w-[382px] h-auto px-1 py-1">
+                  <div className="w-full md:w-[382px] h-auto p-2 ">
                     <p className="text-left">
                       Lorem ipsum dolor sit amet consectetur. Tristique nisl ultricies maecenas vel arcu integer magna Scelerisque eu gravida praesent eget.
                     </p>
@@ -254,7 +254,7 @@ const LandingPage = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="w-full md:w-[382px] h-auto px-1 py-1">
+                  <div className="w-full md:w-[382px] h-auto p-2 ">
                     <p className="text-left">
                       Lorem ipsum dolor sit amet consectetur. Tristique nisl ultricies maecenas vel arcu integer magna Scelerisque eu gravida praesent eget.
                     </p>
@@ -272,8 +272,8 @@ const LandingPage = () => {
       <div  className="flex flex-col bg-black  items-center justify-center p-6 md:grid grid-cols-1  ">
           <div className=" items-center justify-center">
             <h2 className="font-bold text-xl text-white text-left pt-8">Get In Touch</h2>
-            <h3 className="font-medium text-lg text-white text-left pt-6">Have Questions? We're Here</h3>
-            <p className="font-light text-[18px] text-left pt-4 tracking-wide text-white">Need assistance or want to learn more? Our team is ready to help. GEt in touch with Treasure today.</p>
+            <h3 className="font-medium text-lg text-white text-left pt-6">Have Questions? Our support teams are available 24/7</h3>
+            <p className="font-light text-[18px] text-left pt-4 tracking-wide text-white">Need assistance, want to learn more? Or partner with us. Get in touch with Treasure today.</p>
             <button className="flex items-center justify-center text-white bg-transparent rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4 text-md font-bold md:justify-start md:m-1 md:p-0">Explore Features <span className="pl-2"><FaArrowRight /></span></button>
           </div>
           
@@ -281,7 +281,7 @@ const LandingPage = () => {
           <div className=" items-center justify-center border-t">
             
             {/* Grid list comes here */}
-            <ul className="grid grid-cols-2 pt-8 md:grid-cols-3">
+            <ul className="grid grid-cols-2 gap-5 pt-8 md:grid-cols-3">
               <div className=" pb-6">
                 <li className="text-white text-lg font-normal mr-4 ">Contact Information</li>
                 <div className="flex flex-col">
@@ -334,7 +334,7 @@ const LandingPage = () => {
 
             </form>
             {/* News letter Ends here*/}
-            <p className="text-white text-sm mt-4 ">Treasures - Transforming Lives Through Digital Wellness © 2024 Treasures. All rights reserved.</p>
+            <p className="text-white text-sm mt-4 ">Treasures - Transforming Lives Through Digital Wellness© 2024 Treasures. All rights reserved.</p>
           </div>
       </div>
         
