@@ -1,3 +1,4 @@
+
 import { Route, Routes } from 'react-router-dom';
 import Registration from './components/Registration';
 import LandingPage from './pages/LandingPage';
