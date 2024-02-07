@@ -1,13 +1,18 @@
-// src/App.js
-import React from 'react';
-import OnboardingCarousel from './components/OnboardingCarousel';
-import './index.css';
-import './App.css';
+
+import { Route, Routes } from 'react-router-dom';
+import Registration from './components/Registration';
+import LandingPage from './pages/LandingPage';
+import NavBar from './components/NavBar';
+import Auth from './pages/Auth';
 function App() {
   return (
-    <div className="app">
-      <OnboardingCarousel />
-    </div>
+    <>
+      {/* <NavBar/> */}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/auth" element={<Auth />} />
+      </Routes>
+    </>
   );
 }
 
