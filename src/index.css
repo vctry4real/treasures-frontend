@@ -1,3 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities; 
+
+@layer base {
+  :root {
+    --color-primary: #003b3b;
+    --color-secondary: #f8b400;
+    --bg-primary: #003b3b;
+    --bg-secondary: #f8b400;
+    --text-white-bg: #4a5568;
+    --text-colored-bg: #ffff;
+    --color-button-primary: #003b3b;
+    --color-button-secondary: #f8b400;
+    --color-button-hover: #7faaaa;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +28,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.cardTry{
+  @apply bg-opacity-50 text-gray-950 mt-2 block border rounded-md border-gray-700 h-[48px] w-[450px] pl-[12px] pr-[12px] justify-between shadow-sm focus:border-gray-300 focus:ring focus:ring-gray-200 my-8
 }
