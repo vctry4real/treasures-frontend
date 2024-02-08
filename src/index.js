@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import ResetProvider from "./providers/resetProvider";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import GoogleAuthProvider from './providers/GoogleAuthProvider';
+import AlertProvider from './providers/AlertProvider';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <ResetContext> */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    {/* </ResetContext> */}
+    <AlertProvider>
+      <Router>
+        <GoogleAuthProvider>
+          <App />
+        </GoogleAuthProvider>
+      </Router>
+    </AlertProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
