@@ -1,0 +1,9 @@
+Engine causing issues when deploying removed it
+
+.npmrc (root file) = engine-strict=true
+
+"engines": {
+    "node": ">=18.19.0",
+    "npm": ">=10.2.4",
+    "yarn": "please-use-npm"
+  },
