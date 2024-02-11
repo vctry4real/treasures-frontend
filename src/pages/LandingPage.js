@@ -15,7 +15,11 @@ import 'swiper/css/scrollbar';
 //hero image
 import MockUp from '../assets/Dashboard Mockup.svg';
 
+// Navigation
+import { useNavigate } from 'react-router-dom';
+
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <NavBar />
@@ -37,7 +41,12 @@ const LandingPage = () => {
               question finds an answer, and every concern is met with care.
             </p>
             <div className="md:w-full flex flex-row justify-start ">
-              <button className="flex items-center justify-center text-white bg-black rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4 ">
+              <button
+                className="flex items-center justify-center text-white bg-black rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4 "
+                onClick={() => {
+                  navigate('/joinas');
+                }}
+              >
                 Get Started{' '}
                 <span className="pl-2">
                   <FaArrowRight />

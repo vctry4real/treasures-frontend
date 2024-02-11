@@ -8,32 +8,58 @@ import { useNavigate } from 'react-router-dom';
 import CardWrapper from '../components/CardWrapper';
 import GoogleAuth from '../components/GoogleAuth';
 import Signin from '../components/Signin';
-import Signup from '../components/Signup';
+import OtpForm from '../components/OtpForm';
 // import ResetEmail from '../components/ResetEmail';
 import TreasureLogo from '../assets/Treasure.svg';
 import { Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Alert from '../components/Alert';
-import Reset from './ResetPage';
+// import Reset from './ResetPage';
+import EmailForm from '../components/EmailForm';
+import NewPwdForm from '../components/NewPwdForm';
 
 const ResetEmail = () => {
 
-//   const Reser\ = () => {
+//   const Reset = () => {
   const { alert } = useAlertContext();
   const [authType, setAuthType] = useState(1);
+  const navigate= useNavigate();
 
-  const AuthForm = ({ type }) => {
+  const ResetForm = ({ type }) => {
     return (
       <AnimatePresence>
 
         {type === 0 ? (
-          <Signup key="signup" {...{ setAuthType }} />
+          <OtpForm key="otpform" {...{ setAuthType }} />
         ) : type === 1 ? (
-          <Signin key="signin" />
-        ) : (
-          <Reset key="reset" />
+          <EmailForm key="emailform" {...{ setAuthType }} />
+        ) : ( 
+          <NewPwdForm key="newpwdform"  />
         )}
-        <div>
+
+        {/* <div>
+        <button onClick={() => {
+          type === 1 ? (
+            setAuthType(0)
+          ) : type === 0 ? (
+           setAuthType(3)
+        ) : (
+          navigate('/newpwdform')
+        )
+
+          setAuthType(0)
+          // setVisibility('hidden');
+        }
+        }
+          className='text-xs text-blue-600' >
+            Forgot your password?
+        </button>
+        </div> */}
+
+
+
+        {/* Not cecessary */}
+        {/* <div>
         <button onClick={() => setAuthType(type === 2)} className='text-xs text-blue-600' >
             Forgot your password?
         </button>
@@ -47,30 +73,37 @@ const ResetEmail = () => {
           >
             {type === 0 ? 'Sign-in ' : 'Register'}
           </span>
-        </span>
+        </span> */}
       </AnimatePresence>
     );
   };
 
   return (
-    <section className="bg-primary min-h-screen  md:grid md:grid-cols-2 gap-4">
-      <div className="flex items-center justify-center ">
+    // <section className="bg-primary min-h-screen md:grid md:grid-cols-2 gap-4">
+
+    <section className="bg-primary min- h-screen md:grid md:grid-cols-2 lg:flex-row items-center justify-center">
+      <div className=" w-full items-center justify-center ">
+      {/* <div className="w-full md:w-/2 h-screen lg:w-1/3"> */}
         <img
           src={TreasureLogo}
           alt="Logo"
-          className="w-[350px] h-[350px] md:w-full md:h-full object-contain"
+          className="w-[350px] h-[350px] md:w-full md:h-full align-center object-contain"
         />
       </div>
+      <div>
+      {/* <div className= "w/-full md:w-1/2 h-screen lg:w-2/3 flex flex-col items-center justify-center mt-8 md:mt-0 border bg-white rounded-lg "> */}
       <motion.div
         layout
+// Original vs new layouts
         className=" flex flex-col items-center justify-center "
+        // className=" w-full md:w-1/2 h-screen lg:w-2/3 flex flex-col items-center justify-center "
       >
         <CardWrapper className="p-6 w-[400px]">
-          <AuthForm type={authType} />
-          
+          <ResetForm type={authType} />          
         </CardWrapper>
       </motion.div>
       {alert.show && <Alert {...alert} />}
+      </div>
     </section>
   );
 

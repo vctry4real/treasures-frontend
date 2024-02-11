@@ -1,36 +1,39 @@
 import { Route, Routes } from 'react-router-dom';
 import OtpInput from './components/Otp';
 import ResetPage from './pages/ResetPage';
-import NewPwd from './components/NewPwd';
-import UserReasons from './components/UserReasons';
-import JoinAsPage from './components/JoinAs';
 import { React, useState } from 'react';
 import ResetProvider from './providers/resetProvider';
 import Registration from './components/Registration';
 import LandingPage from './pages/LandingPage';
-import Auth from './pages/Auth.jsx';
-import useAlert from './hooks/useAlert';
-import Alert from './components/Alert';
-import ResetEmail from './pages/ResetEmail';
+import NavBar from './components/NavBar';
+import Auth from './pages/Auth';
+import ChildProfile from './components/ChildProfile';
+import ChildProfileDisplay from './components/ChildProfileDisplay';
+import Reset from './pages/ResetEmail';
+import JoinAs from './pages/JoinAs';
+import UserReasons from './pages/UserReasons';
 
 function App() {
   return (
     <>
-      {/* <ResetProvider> */}
-      <Routes>
-        {/* <ResetProvider> */}
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/Otp" element={<OtpInput />}></Route>
-        <Route path="/NewPwd" element={<NewPwd />}></Route>
-        <Route path="/Reasons" element={<UserReasons />}></Route>
-        <Route path="/JoinAs" element={<JoinAsPage />}></Route>
-        <Route path="/resetemail" element={<ResetEmail />}></Route>
-        <Route path="/ResetPage" element={<ResetPage />}></Route>
-        <Route path="/auth" element={<Auth />}></Route>
-        <Route path="/registration" element={<Registration />}></Route>
-        {/* </ResetProvider> */}
-      </Routes>
-      {/* </ResetProvider> */}
+      {/* <NavBar/> */}
+      {/* I include the routhes here for the child profile creation form and the display here so you can test */}
+      <ResetProvider>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/childprofile" element={<ChildProfile />} />
+          <Route
+            path="/childdisplayprofile"
+            element={<ChildProfileDisplay />}
+          />
+          <Route path="/resetemail" element={<Reset />} />
+          {/* remove after testing */}
+          <Route path="/reasons" element={<UserReasons />} />
+          <Route path="/joinas" element={<JoinAs />} />
+          {/* <Route path="/newpwdform" element={< />} /> */}
+        </Routes>
+      </ResetProvider>
     </>
   );
 }

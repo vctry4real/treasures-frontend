@@ -1,13 +1,13 @@
-
-var timeLimitInMinutes = 3;
+import React from "react"
+const StartTimer=(limit) => {
+const timeLimitInMinutes = limit;
 var timeLimitInSeconds = timeLimitInMinutes * 60;
 var timerElement = document.getElementById('timer');
 
-const startTimer=() => {
   timeLimitInSeconds--;
   var minutes = Math.floor(timeLimitInSeconds / 60);
   var seconds = timeLimitInSeconds % 60;
-
+  
   if (timeLimitInSeconds < 0) {
     timerElement.textContent = '00:00';
     clearInterval(timerInterval);
@@ -22,6 +22,12 @@ const startTimer=() => {
   }
 
   timerElement.textContent = minutes + ':' + seconds;
+
+  return (<div>
+    <p>Time left = <span id="timer">{timeLimitInMinutes}:00</span></p>
+  </div>)
 }
 
-var timerInterval = setInterval(startTimer, 1000);
+var timerInterval = setInterval(StartTimer, 1000);
+
+export default StartTimer;

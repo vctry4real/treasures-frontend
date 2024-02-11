@@ -3,19 +3,23 @@ import { createContext, useContext, useState } from "react";
 const ResetContext = createContext({});
 
 const ResetProvider = ({ children }) => {
-  const [email, setEmail] = useState("gUCCIMAINE@GMAIL.COM");
+  const [email, setEmail] = useState("");
 
   const [newPassword, setNewPassword] = useState("");
 
   const [userType, setUserType] = useState("");
 
+  const [userReason, setUserReason] = useState("");
+
   const dataToSend = {
     email,
     newPassword,
     userType,
+    userReason,
     setEmail,
     setNewPassword,
     setUserType,
+    setUserReason,
   };
 
   return (

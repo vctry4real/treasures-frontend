@@ -4,20 +4,18 @@ import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
 import { useAlertContext } from '../providers/AlertProvider';
 import { useNavigate } from 'react-router-dom';
+import CardWrapper from '../components/CardWrapper';
 
-const Signin = () => {
+const EmailForm = ({ setAuthType }) => {
   const { alert, showAlert } = useAlertContext();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleTogglePassword = (e) => {
-    e.preventDefault(); // Prevent form submission reload of page
-    setShowPassword(!showPassword);
-  };
+  // const [showPassword, setShowPassword] = useState(false);
+
   const handleChange = (e) => {
     const sanitizedInput = DOMPurify.sanitize(e.target.value);
     setFormData((prev) => ({
@@ -28,12 +26,16 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = formData;
-    if (!email || !password) {
-      showAlert({ text: 'Please fill in all fields.', type: 'danger' });
-
+    const { email } = formData;
+    if (!email) {
+      showAlert({ text: 'Please fill in registered email', type: 'danger' });
       return;
     }
+    setAuthType(0)
+    console.log("authTyep is zero!")
+
+    // Temp stopping the email verification 
+    return
     try {
       const { status, data } = await PublicApi.post('/auth/signin', formData, {
         headers: {
@@ -43,13 +45,52 @@ const Signin = () => {
       if (status === 200) {
         console.log(data);
         showAlert({ text: 'User authenticated', type: 'success' });
-        navigate('/dashboard');
+        navigate('/Reset');
       }
     } catch (error) {
       console.log(error.response.data.msg);
       showAlert({ text: error.response.data.msg, type: 'danger' });
     }
   };
+
+  // const AuthForm = ({ type }) => {
+  //   return (
+  //     <AnimatePresence>
+
+  //       {type === 0 ? (
+  //         <Email key="signup" {...{ setAuthType }} />
+  //       ) : type === 1 ? (
+  //         <ResetEmail key="reset" />
+  //       ) : (
+  //         <ResetEmail key="reset" />
+  //       )}
+  //       <div>
+  //       <button onClick={() => {
+  //         navigate('/resetemail')
+  //         // setAuthType(type === 2)
+  //         // setVisibility('hidden');
+  //       }
+  //       }
+  //         className='text-xs text-blue-600' >
+  //           Forgot your password?
+  //       </button>
+  //       </div>
+  //       <span className="text-gray-600 text-sm">
+  //         {type === 0 ? 'Already have an account? ' : "Don't have an account? "}
+
+  //         <span
+  //           className="text-blue-500 hover:underline cursor-pointer"
+  //           onClick={() => {setAuthType(type === 0 ? 1 : 0)
+  //         setVisibility('')}
+  //       }
+  //         >
+  //           {type === 0 ? 'Sign-in ' : 'Register'}
+  //         </span>
+  //       </span>
+  //     </AnimatePresence>
+  //   );
+  // };
+
   return (
     <motion.form
       key={'emailform'}
@@ -59,6 +100,11 @@ const Signin = () => {
       onSubmit={handleSubmit}
       className="w-full max-w-sm "
     >
+      
+      <h1 className="mb-1 text-gray-700 text-xl font-bold tracking-wide p-8 text-center">Forgot your password</h1>
+      <p className="pb-2">
+              Enter your registered email address
+            </p>
       <div className="mb-4">
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
@@ -77,36 +123,19 @@ const Signin = () => {
         />
       </div>
 
-      <label className="block mb-2 text-sm text-gray-600">
-        Password:
-        <div className="w-full relative flex items-center mt-2 p-2 border border-gray-300 rounded focus:outline-none hover:border-blue-500">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            autoComplete="current-password"
-            className="w-full outline-none"
-          />
-          <button
-            onClick={handleTogglePassword}
-            className=" text-sm text-gray-500 cursor-pointer"
-          >
-            {showPassword ? 'Hide' : 'Show'}
-          </button>
-        </div>
-      </label>
-      
       <div className="text-center">
         <button
           type="submit"
+          onClick={()=> {
+            "setScreen(type === 0 ? 1 : 0)"
+          }}
           className="w-full mt-4 bg-primary hover:bg-lightGreen text-white p-2 rounded "
         >
-          Login
+          Recover password
         </button>
       </div>
     </motion.form>
   );
 };
 
-export default Signin;
+export default EmailForm;

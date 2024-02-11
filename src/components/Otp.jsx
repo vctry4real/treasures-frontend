@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const OtpInput = ({length=4, onOtpSubmit = () =>{} }) => {
 
     const [otp, setOtp] = useState(new Array(length).fill(""))
-    const [isOtp, setIsOtp] = useState(false)
     const inputRefs = useRef([]);
+   const [isOtp, setIsOtp] = useState(false) 
     const navigate = useNavigate();
 
     useEffect(()=>{
