@@ -157,7 +157,7 @@ const OtpForm = ({ setAuthType }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onSubmit={handleSubmit}
-      className="w-full max-w-sm checked:bg-black "
+      className="w-full max-w-sm bg-slate-200"
     >
       <div className="items-center">
         {/* <StartTimer></StartTimer> */}

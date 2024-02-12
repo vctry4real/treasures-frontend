@@ -34,42 +34,6 @@ const ResetEmail = () => {
         ) : (
           <NewPwdForm key="newpwdform" />
         )}
-
-        {/* <div>
-        <button onClick={() => {
-          type === 1 ? (
-            setAuthType(0)
-          ) : type === 0 ? (
-           setAuthType(3)
-        ) : (
-          navigate('/newpwdform')
-        )
-
-          setAuthType(0)
-          // setVisibility('hidden');
-        }
-        }
-          className='text-xs text-blue-600' >
-            Forgot your password?
-        </button>
-        </div> */}
-
-        {/* Not cecessary */}
-        {/* <div>
-        <button onClick={() => setAuthType(type === 2)} className='text-xs text-blue-600' >
-            Forgot your password?
-        </button>
-        </div>
-        <span className="text-gray-600 text-sm">
-          {type === 0 ? 'Already have an account? ' : "Don't have an account? "}
-
-          <span
-            className="text-blue-500 hover:underline cursor-pointer"
-            onClick={() => setAuthType(type === 0 ? 1 : 0)}
-          >
-            {type === 0 ? 'Sign-in ' : 'Register'}
-          </span>
-        </span> */}
       </AnimatePresence>
     );
   };
@@ -91,7 +55,7 @@ const ResetEmail = () => {
         <motion.div
           layout
           // Original vs new layouts
-          className="bg-slate-200 flex flex-col items-center justify-center "
+          className=" "
           // className=" w-full md:w-1/2 h-screen lg:w-2/3 flex flex-col items-center justify-center "
         >
           <CardWrapper className="p-6 w-[400px]">
