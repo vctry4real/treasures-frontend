@@ -43,7 +43,7 @@ const NewPwdForm = () => {
       showAlert({ text: 'Enter the same password ', type: 'danger' });
       return;
     } else if (password === passwordDup) {
-      showAlert({ text: 'Enter a valid password ', type: 'danger' });
+      showAlert({ text: 'Password change successful  ', type: 'success' });
       
 
       // Api call but for now skips to next page
