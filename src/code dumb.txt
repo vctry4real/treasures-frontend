@@ -7,3 +7,161 @@ Engine causing issues when deploying removed it
     "npm": ">=10.2.4",
     "yarn": "please-use-npm"
   },
+
+  ..large box in the dashboard
+  <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+    <p className="text-2xl text-gray-400 dark:text-gray-500">
+        Letter J
+        <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+        </svg>
+    </p>
+</div>
+
+
+... small box in the dashboard 
+<div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+    <p className="text-2xl text-gray-400 dark:text-gray-500">
+        Letter L
+        <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+        </svg>
+    </p>
+</div>
+
+
+
+
+
+
+////////// DOCTOR CARD DISPLAY GPT FIRST PROMPT //////////////////
+import React from 'react';
+import DoctorItems from './DoctorItems';
+import Carousel from './Carousel'; // Import your Carousel component here
+
+const DoctorCardDisplay = () => {
+    // Doctor info data
+    const DoctorInfoData = [
+        {
+            image: Doctor1, // Assuming Doctor1 is imported somewhere
+            name: "Joseph Micah",
+            description: "Senior Therapist at Helpmum",
+            history: "30 sessions (20) reviews",
+            date: "07 February 24"
+        },
+        {
+            image: Doctor2, // Assuming Doctor2 is imported somewhere
+            name: "Ngozi John",
+            description: "Senior Therapist at Helpmum",
+            history: "30 sessions (20) reviews",
+            date: "02 February 24"
+        }
+    ];
+
+    return (
+        <>
+            {DoctorInfoData.map((item, index) => (
+                <DoctorItems
+                    key={index}
+                    image={item.image}
+                    name={item.name}
+                    description={item.description}
+                    history={item.history}
+                    date={item.date}
+                />
+            ))}
+            <div className="App">
+                <h1>Simple React Carousel</h1>
+                <Carousel doctorData={DoctorInfoData} /> {/* Pass DoctorInfoData as prop to Carousel */}
+            </div>
+        </>
+    );
+}
+
+export default DoctorCardDisplay;
+
+/////////////////// ORIGINAL CODE FOR DoctorCardDisplay ////////////////////////
+
+import React from 'react'
+import DoctorItems from './DoctorItems'
+import Carousel from '../Carousel.jsx';
+
+const DoctorCardDisplay = () => {
+
+    //the date is to be gotten from schedule
+    const DoctorInfoData = [
+        {
+            image:{Doctor1},
+            name:"Joseph Micah",
+            description:"Senior Therapist at Helpmum",
+            history:"30 sessions (20) reviews",
+            date : "07 February 24"
+        },
+        {
+            image:{Doctor2},
+            name:"Ngozi John",
+            description:"Senior Therapist at Helpmum",
+            history:"30 sessions (20) reviews",
+            date : "02 February 24"
+        }
+    ]
+    return (
+        <>
+            {
+                DoctorInfoData.map((items)=>{
+                    return(
+                        <DoctorItems
+                            image = {items.image}
+                            name = {items.description}
+                            description = {items.description}
+                            history = {items.history}
+                            date = {items.date} 
+                        />
+                    )
+                })
+            }
+            <div className="App">
+                <h1>Simple React Carousel</h1>
+                <Carousel images={images} />
+            </div>
+        </>
+    );
+
+}
+
+export default DoctorCardDisplay
+
+
+
+/////////////////// ORIGINAL CAROUSEL CODE BASE ///////////////////////
+
+import React, { useState } from 'react';
+const Carousel = ({ images }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const nextSlide = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  const prevSlide = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+  return (
+    <div className="carousel">
+      <button onClick={prevSlide} className="carousel__btn carousel__btn--prev">
+        &lt;
+      </button>
+      <img
+        src={images[activeIndex]}
+        alt={`Slide ${activeIndex}`}
+        className="carousel__img"
+      />
+      <button onClick={nextSlide} className="carousel__btn carousel__btn--next">
+        &gt;
+      </button>
+    </div>
+  );
+};
+export default Carousel;
