@@ -39,31 +39,24 @@ const ResetEmail = () => {
   };
 
   return (
-    // <section className="bg-primary min-h-screen md:grid md:grid-cols-2 gap-4">
-
-    <section className="bg-primary h-screen md:grid md:grid-cols-2 lg:flex-row items-center justify-center">
-      <div className=" w-full items-center justify-center  ">
-        {/* <div className="w-full md:w-/2 h-screen lg:w-1/3"> */}
+    <section className="bg-primary min-h-screen  md:grid md:grid-cols-2 gap-4">
+      <div className="flex items-center justify-center ">
         <img
           src={TreasureLogo}
           alt="Logo"
-          className="w-[350px] h-[350px] md:w-full md:h-full align-center object-contain "
+          className="w-[350px] h-[350px] md:w-full md:h-full object-contain"
         />
       </div>
-      <div>
-        {/* <div className= "w/-full md:w-1/2 h-screen lg:w-2/3 flex flex-col items-center justify-center mt-8 md:mt-0 border bg-white rounded-lg "> */}
-        <motion.div
-          layout
-          // Original vs new layouts
-          className=" "
-          // className=" w-full md:w-1/2 h-screen lg:w-2/3 flex flex-col items-center justify-center "
-        >
-          <CardWrapper className="p-6 w-[400px]">
-            <ResetForm type={authType} />
-          </CardWrapper>
-        </motion.div>
-        {alert.show && <Alert {...alert} />}
-      </div>
+      <motion.div
+        layout
+        className="bg-zinc-200 flex flex-col items-center justify-center "
+        // className=" w-full md:w-1/2 h-screen lg:w-2/3 flex flex-col items-center justify-center "
+      >
+        <CardWrapper className="p-6 w-[400px]">
+          <ResetForm type={authType} />
+        </CardWrapper>
+      </motion.div>
+      {alert.show && <Alert {...alert} />}
     </section>
   );
 
