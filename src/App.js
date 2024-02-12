@@ -1,6 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import OtpInput from './components/Otp';
-import ResetPage from './pages/ResetPage';
 import { React, useState } from 'react';
 import ResetProvider from './providers/resetProvider';
 import Registration from './components/Registration';

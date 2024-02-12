@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import OtpInput from './components/Otp.jsx';
 import ResetEmail from './pages/ResetEmail.jsx';
 import NewPwd from './components/NewPwd.jsx';
 import UserReasons from './pages/UserReasons.jsx';

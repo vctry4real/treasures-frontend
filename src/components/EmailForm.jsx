@@ -31,11 +31,11 @@ const EmailForm = ({ setAuthType }) => {
       showAlert({ text: 'Please fill in registered email', type: 'danger' });
       return;
     }
-    setAuthType(0)
-    console.log("authTyep is zero!")
+    setAuthType(0);
+    console.log('authTyep is zero!');
 
-    // Temp stopping the email verification 
-    return
+    // Temp stopping the email verification
+    return;
     try {
       const { status, data } = await PublicApi.post('/auth/signin', formData, {
         headers: {
@@ -98,13 +98,12 @@ const EmailForm = ({ setAuthType }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onSubmit={handleSubmit}
-      className="w-full max-w-sm "
+      className="w-full max-w-sm h-screen bg-slate-200"
     >
-      
-      <h1 className="mb-1 text-gray-700 text-xl font-bold tracking-wide p-8 text-center">Forgot your password</h1>
-      <p className="pb-2">
-              Enter your registered email address
-            </p>
+      <h1 className="mb-1 text-gray-700 text-xl font-bold tracking-wide p-8 text-center">
+        Forgot your password
+      </h1>
+      <p className="pb-2">Enter your registered email address</p>
       <div className="mb-4">
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
@@ -126,8 +125,8 @@ const EmailForm = ({ setAuthType }) => {
       <div className="text-center">
         <button
           type="submit"
-          onClick={()=> {
-            "setScreen(type === 0 ? 1 : 0)"
+          onClick={() => {
+            'setScreen(type === 0 ? 1 : 0)';
           }}
           className="w-full mt-4 bg-primary hover:bg-lightGreen text-white p-2 rounded "
         >

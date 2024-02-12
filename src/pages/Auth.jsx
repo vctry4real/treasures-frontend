@@ -13,7 +13,7 @@ import { useAlertContext } from '../providers/AlertProvider';
 const Auth = () => {
   const { alert } = useAlertContext();
   const [authType, setAuthType] = useState(1);
-  const navigate=  useNavigate();
+  const navigate = useNavigate();
 
   const AuthForm = ({ type }) => {
     return (
@@ -28,13 +28,14 @@ const Auth = () => {
 
         {/* forgot password */}
         <div>
-        <button onClick={() => {
-          navigate('/resetemail')
-        }
-        }
-          className='text-xs text-blue-600' >
+          <button
+            onClick={() => {
+              navigate('/resetemail');
+            }}
+            className="text-xs text-blue-600"
+          >
             Forgot your password?
-        </button>
+          </button>
         </div>
 
         <span className="text-gray-600 text-sm">
@@ -62,7 +63,7 @@ const Auth = () => {
       </div>
       <motion.div
         layout
-        className=" flex flex-col items-center justify-center "
+        className="bg-zinc-200 flex flex-col items-center justify-center "
       >
         <CardWrapper className="p-6 w-[400px]">
           <AuthForm type={authType} />
