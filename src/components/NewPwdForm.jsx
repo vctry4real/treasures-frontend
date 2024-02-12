@@ -77,7 +77,7 @@ const NewPwdForm = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onSubmit={handleSubmit}
-      className="w-full max-w-sm bg-slate-200 "
+      className="block mb-2 text-sm text-gray-600 "
     >
       <div className="mb-4">
         <h1 className="mb-1 text-gray-700 text-xl font-bold tracking-wide p-8 text-center">

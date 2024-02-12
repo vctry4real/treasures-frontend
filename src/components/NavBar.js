@@ -78,7 +78,9 @@ const NavBar = () => {
 
         <div className="hidden md:flex pr-4 ml-20">
           <button className="w-[147px] h-[60px] border-none rounded bg-primary text-white mr-4">
-            <Link href="/joinas">Get started</Link>
+            <Link to="/joinas" smooth={true} offset={-100} duration={500}>
+              Get started
+            </Link>
           </button>
         </div>
 
@@ -160,7 +162,9 @@ const NavBar = () => {
 
         <div className="flex flex-row pt-4 items-center justify-center">
           <button className="w-[147px] h-[60px] mb-4 mt-4 border-none rounded bg-primary text-white mr-4">
-            <Link>Get started</Link>
+            <Link to="/joinas" smooth={true} offset={-200}>
+              Get started
+            </Link>
           </button>
         </div>
       </ul>
