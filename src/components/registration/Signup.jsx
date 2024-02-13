@@ -1,23 +1,18 @@
 import { useState } from 'react';
-import { PublicApi } from '../api';
 import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
+import { useAlertContext } from '../../providers/AlertProvider';
+import { useRegisterContext } from '../../providers/RegisterProvider';
 
-import { useAlertContext } from '../providers/AlertProvider';
-
-const Signup = ({ setAuthType }) => {
-  const { showAlert } = useAlertContext();
+const Signup = () => {
+  const { handleSubmit, registrationData, setRegistrationData } =
+    useRegisterContext();
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     password: '',
   });
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handleTogglePassword = (e) => {
-    e.preventDefault(); // Prevent form submission reload of page
-    setShowPassword(!showPassword);
-  };
 
   const handleChange = (e) => {
     const sanitizedInput = DOMPurify.sanitize(e.target.value);
@@ -27,32 +22,24 @@ const Signup = ({ setAuthType }) => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmitFormData = async (e) => {
     e.preventDefault();
-
-    try {
-      const { status } = await PublicApi.post('/auth/signup', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      if (status === 201) {
-        showAlert({ text: 'User created', type: 'success' });
-        console.log('User created');
-        setAuthType(1);
-      }
-    } catch (error) {
-      console.log(error);
-      showAlert({ text: 'Server Error', type: 'danger' });
-    }
+    setRegistrationData((prev) => ({ ...prev, ...formData }));
+    handleSubmit(e, { ...registrationData, ...formData });
   };
+
+  const handleTogglePassword = (e) => {
+    e.preventDefault(); // Prevent form submission reload of page
+    setShowPassword(!showPassword);
+  };
+
   return (
     <motion.form
-      key={'signup'}
+      key={''}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmitFormData}
       className="w-full max-w-sm "
     >
       <label className="block mb-2 text-sm text-gray-600">
@@ -60,7 +47,7 @@ const Signup = ({ setAuthType }) => {
         <input
           type="text"
           name="fullName"
-          value={formData.firstName}
+          value={formData.fullName}
           onChange={handleChange}
           className="w-full mt-2 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
         />

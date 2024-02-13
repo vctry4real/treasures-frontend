@@ -1,8 +1,12 @@
 import { React, useState, useRef } from 'react';
 import TreasureLogo from '../assets/Treasure.svg';
+<<<<<<< HEAD:src/pages/UserReasons.jsx
 import FamilyLogo from '../assets/Family.svg';
+=======
+// import FamilyLogo from '../assets/Family.svg';
+>>>>>>> ac8694d77eb1fbed471e9b061d44c13e69879e96:src/pages/temp/UserReasons.jsx
 import { useNavigate } from 'react-router-dom';
-import { useResetContext } from '../providers/resetProvider';
+import { useResetContext } from '../../providers/RegisterProvider';
 
 // early detection
 import { GiBullseye } from 'react-icons/gi';
@@ -79,7 +83,7 @@ const CardListItem = ({ reasonOption }) => {
             onClick={() => {
               setUserReason(reasonOption.title);
             }}
-            class="checked:bg-black before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-gray-900 text-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
+            className="checked:bg-black before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-gray-900 text-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
           />
         </div>
       </div>
@@ -131,7 +135,7 @@ const UserReasons = () => {
             </a>
           </p>
           <button
-            className="w-1/3 mt-4 hover:bg-primary text-white p-2 rounded
+            className="w-1/3 mt-4 hover:bg-primary p-2 rounded
           m-4 bg-black text-white focus:bg-green focus:fill-white w-400"
             onClick={() => {
               navigate('/auth');

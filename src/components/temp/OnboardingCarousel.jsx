@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './OnboardingCarousel.css';
-import { imageSlider} from './data';
+import { imageSlider } from './data';
 
 const OnboardingCarousel = () => {
   const settings = {
@@ -48,7 +48,10 @@ const OnboardingCarousel = () => {
         {imageSlider.map((item) => (
           <div className="card" key={item.id}>
             <div className="card-top">
-              <img src={process.env.PUBLIC_URL + item.linkImg} alt={item.title} />
+              <img
+                src={process.env.PUBLIC_URL + item.linkImg}
+                alt={item.title}
+              />
               <h1>{item.title}</h1>
             </div>
             <div className="card-bottom">
@@ -58,11 +61,27 @@ const OnboardingCarousel = () => {
             {item.id === 5 && (
               <button className="get-started-button">
                 Get Started
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-                  <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="0.5s" values="0 0; 10 0; 0 0;" repeatCount="indefinite" />
-                </svg>              
-
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                  <animateTransform
+                    attributeName="transform"
+                    attributeType="XML"
+                    type="translate"
+                    dur="0.5s"
+                    values="0 0; 10 0; 0 0;"
+                    repeatCount="indefinite"
+                  />
+                </svg>
               </button>
             )}
           </div>
@@ -70,6 +89,6 @@ const OnboardingCarousel = () => {
       </Slider>
     </div>
   );
-}
+};
 
 export default OnboardingCarousel;
