@@ -1,6 +1,10 @@
 import { React, useState, useRef } from 'react';
 import TreasureLogo from '../assets/Treasure.svg';
+<<<<<<< HEAD:src/pages/UserReasons.jsx
+import FamilyLogo from '../assets/Family.svg';
+=======
 // import FamilyLogo from '../assets/Family.svg';
+>>>>>>> ac8694d77eb1fbed471e9b061d44c13e69879e96:src/pages/temp/UserReasons.jsx
 import { useNavigate } from 'react-router-dom';
 import { useResetContext } from '../../providers/RegisterProvider';
 
