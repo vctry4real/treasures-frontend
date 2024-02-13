@@ -1,9 +1,7 @@
 import React, { createContext, useContext } from 'react';
-import { googleLogout } from '@react-oauth/google';
 import { PublicApi } from '../api';
 import { useAlertContext } from './AlertProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRegisterContext } from './RegisterProvider';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/slice/userSlice';
 
@@ -48,6 +46,7 @@ const GoogleAuthProvider = ({ children }) => {
 
         if (status === 200) {
           const { msg, ...userData } = data;
+
           dispatch(setUser(userData));
           showAlert({ text: 'User Authenticated', type: 'success' });
           const { from } = location.state || { from: '/dashboard' };
@@ -59,16 +58,9 @@ const GoogleAuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    googleLogout();
-  };
-
   const sharedData = {
     clientId,
     handleLoginSuccess,
-    logout,
   };
   return (
     <GoogleAuthContext.Provider value={sharedData}>

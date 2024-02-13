@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import CardWrapper from '../components/CardWrapper';
-import GoogleAuth from '../components/GoogleAuth';
-import Signin from '../components/Signin';
-import Signup from '../components/registration/Signup';
-import TreasureLogo from '../assets/Treasure.svg';
+import CardWrapper from '../../components/CardWrapper';
+import GoogleAuth from '../../components/temp/GoogleAuth';
+import Signin from '../../components/Signin';
+import Signup from '../../components/registration/Signup';
+import TreasureLogo from '../../assets/Treasure.svg';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Alert from '../components/Alert';
+import Alert from '../../components/Alert';
 
-import { useAlertContext } from '../providers/AlertProvider';
+import { useAlertContext } from '../../providers/AlertProvider';
 
 const Auth = () => {
   const { alert } = useAlertContext();
@@ -18,16 +18,10 @@ const Auth = () => {
   const AuthForm = ({ type }) => {
     return (
       <AnimatePresence>
-        {type === 0 ? (
-          <Signup key="signup" {...{ setAuthType }} />
-        ) : type === 1 ? (
-          <Signin key="signin" />
-        ) : (
-          <></>
-        )}
+        <Signin key="ss" />
 
         {/* forgot password */}
-        <div>
+        <div key="s2ss">
           <button
             onClick={() => {
               navigate('/resetemail');
@@ -53,8 +47,8 @@ const Auth = () => {
   };
 
   return (
-    <section className="bg-primary min-h-screen  md:grid md:grid-cols-2 gap-4">
-      <div className="flex items-center justify-center ">
+    <section className="flex bg-primary min-h-screen  md:grid md:grid-cols-2 gap-4">
+      <div className="hidden md:flex items-center justify-center ">
         <img
           src={TreasureLogo}
           alt="Logo"
@@ -63,7 +57,7 @@ const Auth = () => {
       </div>
       <motion.div
         layout
-        className="bg-zinc-200 flex flex-col items-center justify-center "
+        className="w-full bg-zinc-200 flex flex-col items-center justify-center "
       >
         <CardWrapper className="p-6 w-[400px]">
           <AuthForm type={authType} />

@@ -35,8 +35,6 @@ const userSlice = createSlice({
       saveToLocalStorage('user', state);
     },
     logout: (state) => {
-      console.log('dd');
-
       state.user = null;
 
       localStorage.removeItem('user');

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { PublicApi } from '../api';
+import { PublicApi } from '../../api';
 import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
-import { useAlertContext } from '../providers/AlertProvider';
+import { useAlertContext } from '../../providers/AlertProvider';
 import { useNavigate } from 'react-router-dom';
-import CardWrapper from '../components/CardWrapper';
+import CardWrapper from '../CardWrapper';
 
 const EmailForm = ({ setAuthType }) => {
   const { alert, showAlert } = useAlertContext();

@@ -5,8 +5,9 @@ import CardWrapper from '../CardWrapper';
 import SelectUserTypeList from './SelectUserType';
 import { useRegisterContext } from '../../providers/RegisterProvider';
 import SelectReasonList from './SelectReason';
-import GoogleAuth from '../GoogleAuth';
+import GoogleAuth from '../temp/GoogleAuth';
 import Success from './Success';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function ThreeBarProgressBar({ progress }) {
   return (
@@ -24,6 +25,7 @@ function ThreeBarProgressBar({ progress }) {
   );
 }
 const RegistrationSlide = () => {
+  const navigate = useNavigate();
   const { progress, handleNextStep, handlePreviousStep } = useRegisterContext();
 
   const ActiveSLide = ({ progress }) => {
@@ -49,7 +51,10 @@ const RegistrationSlide = () => {
             </div>
           </>
         ) : (
-          <Success />
+          <>
+            <Success />
+            <button onClick={() => navigate('/dashboard')}>Dashboard</button>
+          </>
         )}
       </AnimatePresence>
     );

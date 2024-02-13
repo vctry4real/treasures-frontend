@@ -1,11 +1,11 @@
-import React from "react";
-import { useState, useContext } from "react";
-import TreasureLogo from "../assets/Treasure.svg";
-import { ResetContext } from "../providers/resetProvider";
+import React from 'react';
+import { useState, useContext } from 'react';
+import TreasureLogo from '../assets/Treasure.svg';
+import { ResetContext } from '../providers/resetProvider';
 
 const ResetPage = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = (e) => {
@@ -54,10 +54,11 @@ const ResetPage = () => {
 
               <button
                 type="submit"
-                className="w-full md:w-[450px] h-[48px] bg-primary text-white py-2 px-4 rounded-md hover:bg-lightGreen focus:outline-none focus:ring focus:ring-blue-200">
+                className="w-full md:w-[450px] h-[48px] bg-primary text-white py-2 px-4 rounded-md hover:bg-lightGreen focus:outline-none focus:ring focus:ring-blue-200"
+              >
                 {/* Login */}
                 <a href="/Otp" className="text-green-600">
-                  {" "}
+                  {' '}
                   Login.
                 </a>
               </button>
