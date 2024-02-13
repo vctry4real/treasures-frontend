@@ -4,14 +4,19 @@ import { PrivateApi } from '../api';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/slice/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const DashboardContext = createContext({});
 
 const DashboardProvider = ({ children }) => {
   const { showAlert } = useAlertContext();
-  const currentUser = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  const currentUserRedux = useSelector((state) => state.user);
+  const currentUserLocalStorage = JSON.parse(localStorage.getItem('user'));
+  const currentUser = currentUserRedux || currentUserLocalStorage;
+
   const dispatch = useDispatch();
-  const [currentUserProfile, setCurrentUserProfile] = useState();
 
   const getCurrentUserProfile = async (email) => {
     try {
@@ -23,25 +28,13 @@ const DashboardProvider = ({ children }) => {
       throw error;
     }
   };
+
   const handleLogout = () => {
     dispatch(logout());
+    navigate('/');
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await getCurrentUserProfile(currentUser.email);
-        setCurrentUserProfile(result);
-      } catch (error) {
-        showAlert({
-          text: 'Error fetching profile, please try again in a while',
-          type: 'danger',
-        });
-      }
-    };
-    fetchData();
-  }, [currentUser]);
 
-  const dataToSend = { currentUserProfile, handleLogout };
+  const dataToSend = { currentUser, handleLogout };
   return (
     <DashboardContext.Provider value={dataToSend}>
       {children}

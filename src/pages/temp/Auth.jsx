@@ -33,13 +33,12 @@ const Auth = () => {
         </div>
 
         <span className="text-gray-600 text-sm">
-          {type === 0 ? 'Already have an account? ' : "Don't have an account? "}
-
+          Don't have an account?{' '}
           <span
             className="text-blue-500 hover:underline cursor-pointer"
-            onClick={() => setAuthType(type === 0 ? 1 : 0)}
+            onClick={() => navigate('/register')}
           >
-            {type === 0 ? 'Signin ' : 'Register'}
+            Register
           </span>
         </span>
       </AnimatePresence>
