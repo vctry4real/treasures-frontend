@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import CardWrapper from '../../components/CardWrapper';
-import GoogleAuth from '../../components/temp/GoogleAuth';
-import Signin from '../../components/Signin';
-import Signup from '../../components/registration/Signup';
-import TreasureLogo from '../../assets/Treasure.svg';
+import CardWrapper from '../components/CardWrapper';
+import GoogleAuth from '../components/temp/GoogleAuth';
+import Signin from '../components/Signin';
+import Signup from '../components/registration/Signup';
+import TreasureLogo from '../assets/Treasure.svg';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Alert from '../../components/Alert';
+import Alert from '../components/Alert';
 
-import { useAlertContext } from '../../providers/AlertProvider';
+import { useAlertContext } from '../providers/AlertProvider';
 
 const Auth = () => {
   const { alert } = useAlertContext();

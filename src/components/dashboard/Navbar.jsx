@@ -19,10 +19,6 @@ const Navbar = () => {
 
   const { currentUserProfile, error } = useProfile(currentUser);
 
-  useEffect(() => {
-    console.log(currentUserProfile);
-  }, [currentUserProfile, error]);
-
   const toggleNavDropdown = () => {
     setNavOpen(!navOpen);
   };

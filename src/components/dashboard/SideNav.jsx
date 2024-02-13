@@ -12,7 +12,7 @@ const SideNav = () => {
           {/* The aside DASHBOARD menu link */}
           <div>
             <Link
-              to="/dashboard"
+              to="/dashboard/display"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <li className="flex items-center p-2">

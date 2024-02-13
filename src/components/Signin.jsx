@@ -51,7 +51,7 @@ const Signin = () => {
         console.log('data', data);
 
         showAlert({ text: 'User authenticated', type: 'success' });
-        const { from } = location.state || { from: '/dashboard' };
+        const { from } = location.state || { from: '/dashboard/display' };
         navigate(from);
       }
     } catch (error) {
