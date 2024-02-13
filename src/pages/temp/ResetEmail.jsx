@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { PublicApi } from '../api';
+import { PublicApi } from '../../api';
 import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
-import { useAlertContext } from '../providers/AlertProvider';
+import { useAlertContext } from '../../providers/AlertProvider';
 import { useNavigate } from 'react-router-dom';
 
-import CardWrapper from '../components/CardWrapper';
+import CardWrapper from '../../components/CardWrapper';
 import GoogleAuth from '../components/GoogleAuth';
-import Signin from '../components/Signin';
+import Signin from '../../components/Signin';
 import OtpForm from '../components/OtpForm';
 // import ResetEmail from '../components/ResetEmail';
 import TreasureLogo from '../assets/Treasure.svg';
 import { Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import Alert from '../components/Alert';
+import Alert from '../../components/Alert';
 // import Reset from './ResetPage';
 import EmailForm from '../components/EmailForm';
 import NewPwdForm from '../components/NewPwdForm';

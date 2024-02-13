@@ -48,6 +48,7 @@ const RegisterProvider = ({ children }) => {
       if (status === 201) {
         showAlert({ text: 'User created', type: 'success' });
         console.log('User created');
+
         handleNextStep();
       }
     } catch (error) {

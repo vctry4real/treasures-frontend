@@ -1,7 +1,7 @@
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
-import { useGoogleAuth } from '../providers/GoogleAuthProvider';
-import { useRegisterContext } from '../providers/RegisterProvider';
+import { useGoogleAuth } from '../../providers/GoogleAuthProvider';
+import { useRegisterContext } from '../../providers/RegisterProvider';
 
 const GoogleAuth = ({}) => {
   const { clientId, handleLoginSuccess } = useGoogleAuth();

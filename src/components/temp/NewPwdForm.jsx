@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { PublicApi } from '../api';
+import { PublicApi } from '../../api';
 import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
-import { useAlertContext } from '../providers/AlertProvider';
+import { useAlertContext } from '../../providers/AlertProvider';
 import { useNavigate } from 'react-router-dom';
 
-import Alert from './Alert';
+import Alert from '../Alert';
 
 const NewPwdForm = () => {
   const { alert, showAlert } = useAlertContext();

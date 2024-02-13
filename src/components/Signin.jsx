@@ -96,7 +96,7 @@ const Signin = () => {
           </button>
         </div>
       </label>
-      
+
       <div className="text-center">
         <button
           type="submit"

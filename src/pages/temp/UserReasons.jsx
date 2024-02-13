@@ -2,7 +2,7 @@ import { React, useState, useRef } from 'react';
 import TreasureLogo from '../assets/Treasure.svg';
 // import FamilyLogo from '../assets/Family.svg';
 import { useNavigate } from 'react-router-dom';
-import { useResetContext } from '../providers/RegisterProvider';
+import { useResetContext } from '../../providers/RegisterProvider';
 
 // early detection
 import { GiBullseye } from 'react-icons/gi';
