@@ -10,27 +10,29 @@ import Booking from './pages/Booking';
 import Profile from './pages/Profile';
 import Premium from './pages/Premium';
 import Help from './pages/Help';
-import DashboardProvider from './providers/DashboardProvider';
 
 const ProtectedRoute = () => {
-  const currentUser = useSelector((state) => state.user);
+  const currentUserRedux = useSelector((state) => state.user);
+  const currentUserLocalStorage = JSON.parse(localStorage.getItem('user'));
+
   const navigate = useNavigate();
 
   useEffect(() => {
+    const currentUser = currentUserRedux || currentUserLocalStorage;
+
+    console.log('currentUser ', currentUser);
+
     // Automatically navigate to the authentication page if no current user
     if (!currentUser || currentUser === null) {
       return navigate('/auth', { replace: true });
     }
-  }, [currentUser, navigate]);
+  }, [currentUserRedux, currentUserLocalStorage, navigate]);
 
   return <Outlet />;
 };
 
 function App() {
   const currentUser = useSelector((state) => state.user);
-  useEffect(() => {
-    console.log('currentUser ', currentUser);
-  }, []);
   return (
     <>
       <Routes>

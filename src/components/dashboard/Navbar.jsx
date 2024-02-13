@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDashboardContext } from '../../providers/DashboardProvider';
+import { useSelector } from 'react-redux';
+import useProfile from '../../hooks/useProfile';
+
 const ProfileData = [
   {
     id: 1,
@@ -12,7 +15,14 @@ const ProfileData = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
-  const { currentUserProfile, handleLogout } = useDashboardContext();
+  const { currentUser, handleLogout } = useDashboardContext();
+
+  const { currentUserProfile, error } = useProfile(currentUser);
+
+  useEffect(() => {
+    console.log(currentUserProfile);
+  }, [currentUserProfile, error]);
+
   const toggleNavDropdown = () => {
     setNavOpen(!navOpen);
   };

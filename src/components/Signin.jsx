@@ -3,11 +3,15 @@ import { PublicApi } from '../api';
 import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
 import { useAlertContext } from '../providers/AlertProvider';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { setUser } from '../redux/slice/userSlice';
+import { useDispatch } from 'react-redux';
 
 const Signin = () => {
   const { alert, showAlert } = useAlertContext();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -41,12 +45,17 @@ const Signin = () => {
         },
       });
       if (status === 200) {
-        console.log(data);
+        const { msg, ...userData } = data;
+
+        dispatch(setUser(userData));
+        console.log('data', data);
+
         showAlert({ text: 'User authenticated', type: 'success' });
-        navigate('/dashboard');
+        const { from } = location.state || { from: '/dashboard' };
+        navigate(from);
       }
     } catch (error) {
-      console.log(error.response.data.msg);
+      // console.log(error.response.data.msg);
       showAlert({ text: error.response.data.msg, type: 'danger' });
     }
   };
