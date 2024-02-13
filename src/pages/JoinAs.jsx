@@ -1,7 +1,7 @@
 import { React, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TreasureLogo from '../assets/Treasure.svg';
-import FamilyLogo from '../assets/family.svg';
+import FamilyLogo from '../assets/Family.svg';
 import DoctorLogo from '../assets/doctor.svg';
 import HospitalLogo from '../assets/hospital.svg';
 import RadioBtn from '../assets/radioButton.svg';

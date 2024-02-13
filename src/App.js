@@ -23,10 +23,10 @@ function App() {
       {/* I include the routhes here for the child profile creation form and the display here so you can test */}
 
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path='/childprofile' element = {<ChildProfile/>}/>
-        <Route path='/childdisplayprofile' element = {<ChildProfileDisplay/>}/>
+        {/* <Route path="/" element={<LandingPage />} /> */}
+        {/* <Route path="/auth" element={<Auth />} /> */}
+        {/* <Route path='/childprofile' element = {<ChildProfile/>}/>
+        // <Route path='/childdisplayprofile' element = {<ChildProfileDisplay/>}/> */}
         <Route path='/dashboard' element = {<Dashboard/>}/>
         <Route path='/doctor' element = {<DoctorCardDisplay/>}/>
         
