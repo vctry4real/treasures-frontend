@@ -44,7 +44,7 @@ const LandingPage = () => {
               <button
                 className="flex items-center justify-center text-white bg-black rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4 "
                 onClick={() => {
-                  navigate('/joinas');
+                  navigate('/register');
                 }}
               >
                 Get Started{' '}

@@ -5,7 +5,7 @@ import FamilyLogo from '../assets/family.svg';
 import DoctorLogo from '../assets/doctor.svg';
 import HospitalLogo from '../assets/hospital.svg';
 import RadioBtn from '../assets/radioButton.svg';
-import { useResetContext } from '../providers/resetProvider';
+import { useResetContext } from '../providers/RegisterProvider';
 
 const userCategories = [
   {

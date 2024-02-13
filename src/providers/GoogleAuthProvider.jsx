@@ -2,7 +2,10 @@ import React, { createContext, useContext } from 'react';
 import { googleLogout } from '@react-oauth/google';
 import { PublicApi } from '../api';
 import { useAlertContext } from './AlertProvider';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useRegisterContext } from './RegisterProvider';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../redux/slice/userSlice';
 
 const GoogleAuthContext = createContext({
   clientId: '',
@@ -11,22 +14,30 @@ const GoogleAuthContext = createContext({
 });
 
 const GoogleAuthProvider = ({ children }) => {
-  const { alert, showAlert } = useAlertContext();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { alert, showAlert } = useAlertContext();
+
   const clientId = process.env.REACT_APP_CLIENT_ID;
 
-  const handleLoginSuccess = async (credentialResponse) => {
+  const handleLoginSuccess = async (credentialResponse, registrationData) => {
     // Send the credential to the backend
-    await sendCredentialToBackend(credentialResponse.credential);
+    await sendCredentialToBackend(
+      credentialResponse.credential,
+      registrationData
+    );
   };
 
-  const sendCredentialToBackend = async (credential) => {
+  const sendCredentialToBackend = async (credential, registrationData) => {
     if (credential) {
       try {
         const { status, data } = await PublicApi.post(
           'http://localhost:5000/auth/google',
           {
             credential: credential,
+            ...registrationData,
           },
           {
             headers: {
@@ -36,10 +47,11 @@ const GoogleAuthProvider = ({ children }) => {
         );
 
         if (status === 200) {
-          localStorage.setItem('accessToken', data.accessToken);
-          localStorage.setItem('refreshToken', data.refreshToken);
-          showAlert({ text: 'User authenticated', type: 'success' });
-          navigate('/dashboard');
+          const { msg, ...userData } = data;
+          dispatch(setUser(userData));
+          showAlert({ text: 'User Authenticated', type: 'success' });
+          const { from } = location.state || { from: '/dashboard' };
+          navigate(from);
         }
       } catch (error) {
         console.error('Error sending credential to backend:', error);
