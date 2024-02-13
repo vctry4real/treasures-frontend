@@ -101,7 +101,7 @@ const NavBar = () => {
               className="flex items-center justify-center font-bold text-primary bg-yellow-400 tracking-wider rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4  "
               smooth={true} offset={-100} duration={500}
               onClick={() => {
-                navigate('/joinas');
+                navigate('/register');
               }}
             >
               Get Started{' '}
