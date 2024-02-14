@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { PublicApi } from '../api';
+import { PrivateApi, PublicApi } from '../api';
 import { useAlertContext } from './AlertProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -32,7 +32,7 @@ const GoogleAuthProvider = ({ children }) => {
     if (credential) {
       try {
         const { status, data } = await PublicApi.post(
-          'http://localhost:5000/auth/google',
+          '/auth/google',
           {
             credential: credential,
             ...registrationData,
