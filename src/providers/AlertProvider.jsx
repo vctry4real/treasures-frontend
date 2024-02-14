@@ -20,5 +20,9 @@ const AlertProvider = ({ children }) => {
 export default AlertProvider;
 
 export const useAlertContext = () => {
-  return useContext(AlertContext);
+  const context = useContext(AlertContext);
+  if (context === undefined) {
+    throw new Error('useAlertContext must be used within an AlertProvider');
+  }
+  return context;
 };

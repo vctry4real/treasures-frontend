@@ -23,8 +23,17 @@ module.exports = {
     extend: {
       backgroundColor: {
         primary: 'var(--color-primary)', // Corrected from --bg-primary
-        orange: 'var(--color-secondary)',
+        secondary: 'var(--color-secondary)',
         lightGreen: 'var(--color-button-hover)',
+        'secondary-100': '#fff7d4',
+        'secondary-200': '#ffe78a',
+        'secondary-300': '#ffd13f',
+        'secondary-400': '#f9bc00',
+        'secondary-500': '#f8b400', // Base color
+        'secondary-600': '#d79800',
+        'secondary-700': '#b37a00',
+        'secondary-800': '#8e5c00',
+        'secondary-900': '#694000',
       },
 
       textColor: {
