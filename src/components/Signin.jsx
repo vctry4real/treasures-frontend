@@ -51,8 +51,10 @@ const Signin = () => {
         console.log('data', data);
 
         showAlert({ text: 'User authenticated', type: 'success' });
-        const { from } = location.state || { from: '/dashboard/display' };
-        navigate(from);
+        setTimeout(() => {
+          const { from } = location.state || { from: '/dashboard/display' };
+          navigate(from);
+        }, 2000);
       }
     } catch (error) {
       // console.log(error.response.data.msg);

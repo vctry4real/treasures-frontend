@@ -18,6 +18,8 @@ const GoogleAuth = ({}) => {
         }}
         type="outline"
         size="large"
+        shape="pill"
+        logo_alignment="left"
 
         // useOneTap
         // auto_select
