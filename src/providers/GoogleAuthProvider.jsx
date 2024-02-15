@@ -49,7 +49,7 @@ const GoogleAuthProvider = ({ children }) => {
 
           dispatch(setUser(userData));
           showAlert({ text: 'User Authenticated', type: 'success' });
-          const { from } = location.state || { from: '/dashboard/display' };
+          const { from } = location.state || { from: '/dashboard/' };
           navigate(from);
         }
       } catch (error) {
