@@ -52,7 +52,7 @@ const Signin = () => {
 
         showAlert({ text: 'User authenticated', type: 'success' });
         setTimeout(() => {
-          const { from } = location.state || { from: '/dashboard/display' };
+          const { from } = location.state || { from: '/dashboard/' };
           navigate(from);
         }, 2000);
       }
