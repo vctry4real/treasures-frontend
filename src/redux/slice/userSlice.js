@@ -26,7 +26,6 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       const { accessToken, refreshToken, ...userData } = action.payload;
 
-      console.log(userData);
       // Update the state directly
       state = { ...userData };
       // Save the updated state to local storage
@@ -35,7 +34,7 @@ const userSlice = createSlice({
       saveToLocalStorage('user', state);
     },
     logout: (state) => {
-      state.user = null;
+      state = null;
 
       localStorage.removeItem('user');
       localStorage.removeItem('accessToken');
