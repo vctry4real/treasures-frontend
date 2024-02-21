@@ -9,10 +9,10 @@ const SideNav = () => {
     >
       <div className="h-full px-3 pb-4 overflow-y-hidden bg-white dark:bg-gray-800">
         <ul className="h-full space-y-2 font-medium flex flex-col justify-between">
-          {/* The aside DASHBOARD menu link */}
+          {/* The aside DASHBOARD me nu link */}
           <div>
             <Link
-              to="/dashboard/display"
+              to="/dashboard/"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <li className="flex items-center p-2">
@@ -30,7 +30,7 @@ const SideNav = () => {
               </li>
             </Link>
 
-            {/* The aside Bookings menu link */}
+            {/* The aside KANBAN menu link */}
             <Link
               to="/dashboard/booking"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"

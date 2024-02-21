@@ -53,7 +53,7 @@ const RegisterProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-      showAlert({ text: 'Server Error', type: 'danger' });
+      showAlert({ text: 'Registration Error', type: 'danger' });
     }
   };
 

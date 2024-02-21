@@ -120,7 +120,119 @@ const DashboardDisplay = () => {
         </div>
         {/* Book An Appointment Ends Here */}
 
-        
+        {/* <Swiper
+          slidesPerView={'1'}
+          spaceBetween={100}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <div className="flex flex-col items-center justify-center rounded p-2 mb-7 bg-pink-50 h-28">
+              <Link to={'/'} className="w-full mb-3">
+                <div className="w-full flex items-center">
+                  <h3 className=" font-bold">Schedule</h3>
+                  <div className="ml-auto">
+                    <FaGreaterThan />
+                  </div>
+                </div>
+              </Link>
+              <div className="w-full flex items-center gap-4">
+                <div>
+                  <IoFolderSharp />
+                </div>
+                <div className="">
+                  <p className="text-md text-gray-400">
+                    You Have no schedules.
+                  </p>
+                  <p className="font-bold ">Browse Health professionals</p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex flex-col items-center justify-center rounded p-2 mb-7 bg-gray-100 h-28">
+              <Link to={'/'} className="w-full mb-3">
+                <div className="w-full flex items-center">
+                  <h3 className="mb-3 font-bold">Consultations</h3>
+                  <div className="ml-auto">
+                    <FaGreaterThan />
+                  </div>
+                </div>
+              </Link>
+              <div className="w-full flex items-center gap-4">
+                <div>
+                  <FaPhoneAlt />
+                </div>
+                <div className="">
+                  <p className="text-md text-gray-400">Completed 0 Mins.</p>
+                  <svg
+                    width="90"
+                    height="12"
+                    viewBox="0 0 90 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0_1326_4629)">
+                      <rect
+                        y="0.5"
+                        width="122"
+                        height="11"
+                        rx="2"
+                        fill="#1A96F0"
+                      />
+                      <rect
+                        x="40"
+                        y="0.5"
+                        width="82"
+                        height="11"
+                        fill="white"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1326_4629">
+                        <rect
+                          y="0.5"
+                          width="122"
+                          height="11"
+                          rx="2"
+                          fill="white"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex flex-col items-center justify-center rounded p-2 mb-7 bg-pink-50 h-28">
+              <Link to={'/'} className="w-full mb-3">
+                <div className="w-full flex items-center">
+                  <h3 className="mb-3 font-bold">Schedule</h3>
+                  <div className="ml-auto">
+                    <FaGreaterThan />
+                  </div>
+                </div>
+              </Link>
+              <div className="w-full flex items-center gap-4">
+                <div>
+                  <IoFolderSharp />
+                </div>
+                <div className="">
+                  <p className="text-md text-gray-400">
+                    You Have no schedules.
+                  </p>
+                  <p className="font-bold ">Browse Health professionals</p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper> */}
 
         <DoctorCardDisplay />
 
