@@ -48,10 +48,10 @@ PrivateApi.interceptors.response.use(
         ) {
           // If the refresh token has expired
           console.log('Refresh token has expired');
-          // localStorage.removeItem("user");
-          // localStorage.removeItem("accessToken");
-          // localStorage.removeItem("refreshToken");
-          // return Promise.reject("Refresh token has expired");
+          localStorage.removeItem('user');
+          localStorage.removeItem('accessToken');
+          localStorage.removeItem('refreshToken');
+          return Promise.reject('Refresh token has expired');
         }
 
         const parsedToken = JSON.parse(refreshToken);
@@ -64,15 +64,10 @@ PrivateApi.interceptors.response.use(
 
         return axios(originalRequest);
       } catch (refreshError) {
-        if (
-          refreshError &&
-          refreshError.response &&
-          refreshError.response.status === 403
-        ) {
-          localStorage.removeItem('user');
-          localStorage.removeItem('accessToken');
-          localStorage.removeItem('refreshToken');
-        }
+        localStorage.removeItem('user');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+
         console.log('Error refreshing access token:', refreshError);
       }
     }
