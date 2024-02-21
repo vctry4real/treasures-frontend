@@ -22,7 +22,7 @@ import HealthCardDisplay from '../(healthPractioners)/HealthCardDisplay';
 const DashboardDisplay = () => {
   return (
     <div className="p-4 ">
-      <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 ">
+      <div className="p-4   rounded-lg  ">
         <div className="flex flex-col items-center gap-2 text-left p-2 h-auto mb-9 rounded-xl bg-primary">
           <p className="w-full text-md text-white text-left">
             Get Started with Treasure Consultant
@@ -34,7 +34,7 @@ const DashboardDisplay = () => {
             </span>
           </h3>
         </div>
-        <div className="flex flex-row gap-8 mb-6">
+        <div className=" w-full flex flex-row  mb-6">
           <div className="flex flex-col items-center justify-center rounded bg-transparent">
             <div className="text-left w-full">
               {' '}
@@ -50,8 +50,8 @@ const DashboardDisplay = () => {
               </p>
             </div>
           </div>
-          <div className="">
-            <button className="p-2 rounded-2xl border  ml-auto w-[120px] bg-slate-100">
+          <div className="w-full ml-[20px] md:flex justify-end  ">
+            <button className="p-2 rounded-2xl border w-[120px] bg-slate-100">
               See upcoming
             </button>
           </div>
@@ -103,136 +103,6 @@ const DashboardDisplay = () => {
             <p className="text-md text-left text-gray-900">Add child</p>
           </div>
         </div>
-
-        {/* Add child profile  ends here*/}
-
-        {/*Book An Appointment*/}
-        <div className="flex items-center justify-center p-4 mb-7 rounded-2xl bg-gray-100">
-          <div>
-            <p className=" flex flex-row items-center text-2xl text-gray-400 dark:text-gray-500">
-              {' '}
-              <span className="mr-3">
-                <IoBookSharp />
-              </span>
-              Book Appointment
-            </p>
-          </div>
-        </div>
-        {/* Book An Appointment Ends Here */}
-
-        {/* <Swiper
-          slidesPerView={'1'}
-          spaceBetween={100}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <div className="flex flex-col items-center justify-center rounded p-2 mb-7 bg-pink-50 h-28">
-              <Link to={'/'} className="w-full mb-3">
-                <div className="w-full flex items-center">
-                  <h3 className=" font-bold">Schedule</h3>
-                  <div className="ml-auto">
-                    <FaGreaterThan />
-                  </div>
-                </div>
-              </Link>
-              <div className="w-full flex items-center gap-4">
-                <div>
-                  <IoFolderSharp />
-                </div>
-                <div className="">
-                  <p className="text-md text-gray-400">
-                    You Have no schedules.
-                  </p>
-                  <p className="font-bold ">Browse Health professionals</p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="flex flex-col items-center justify-center rounded p-2 mb-7 bg-gray-100 h-28">
-              <Link to={'/'} className="w-full mb-3">
-                <div className="w-full flex items-center">
-                  <h3 className="mb-3 font-bold">Consultations</h3>
-                  <div className="ml-auto">
-                    <FaGreaterThan />
-                  </div>
-                </div>
-              </Link>
-              <div className="w-full flex items-center gap-4">
-                <div>
-                  <FaPhoneAlt />
-                </div>
-                <div className="">
-                  <p className="text-md text-gray-400">Completed 0 Mins.</p>
-                  <svg
-                    width="90"
-                    height="12"
-                    viewBox="0 0 90 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_1326_4629)">
-                      <rect
-                        y="0.5"
-                        width="122"
-                        height="11"
-                        rx="2"
-                        fill="#1A96F0"
-                      />
-                      <rect
-                        x="40"
-                        y="0.5"
-                        width="82"
-                        height="11"
-                        fill="white"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_1326_4629">
-                        <rect
-                          y="0.5"
-                          width="122"
-                          height="11"
-                          rx="2"
-                          fill="white"
-                        />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="flex flex-col items-center justify-center rounded p-2 mb-7 bg-pink-50 h-28">
-              <Link to={'/'} className="w-full mb-3">
-                <div className="w-full flex items-center">
-                  <h3 className="mb-3 font-bold">Schedule</h3>
-                  <div className="ml-auto">
-                    <FaGreaterThan />
-                  </div>
-                </div>
-              </Link>
-              <div className="w-full flex items-center gap-4">
-                <div>
-                  <IoFolderSharp />
-                </div>
-                <div className="">
-                  <p className="text-md text-gray-400">
-                    You Have no schedules.
-                  </p>
-                  <p className="font-bold ">Browse Health professionals</p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper> */}
 
         <DoctorCardDisplay />
 
