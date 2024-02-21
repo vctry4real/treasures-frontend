@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const SideNav = () => {
   return (
     <aside
-      className=" h-full z-40 w-64  pt-2 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
-      aria-label="Sidebar"
+      className="hidden md:block md:h-full z-40 w-64  pt-2 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700 "
+      aria-label="Sidebar" 
     >
       <div className="h-full px-3 pb-4 overflow-y-hidden bg-white dark:bg-gray-800">
         <ul className="h-full space-y-2 font-medium flex flex-col justify-between">

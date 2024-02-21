@@ -8,6 +8,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperButtons from '../SwiperButtons';
+import { FaGreaterThan } from "react-icons/fa6";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -35,6 +36,10 @@ const DoctorCardDisplay = () => {
   ];
   return (
     <div className="flex flex-col mb-8">
+      <div className='w-full flex items-center justify-between '>
+        <h3 className='text-md font-bold'>Top Health Practioners To Meet </h3>
+        <span><FaGreaterThan className=" text-black" /></span>
+      </div>
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination]}
@@ -56,10 +61,11 @@ const DoctorCardDisplay = () => {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
         className='w-full flex items-center '
-      > 
-        <SwiperButtons />
+      >
+
+        {/* <SwiperButtons /> */}
         {DoctorInfoData.map((item, index) => (
-          <SwiperSlide>
+          <SwiperSlide className='mt-[20px] h-auto pb-[20px]'>
             <DoctorItems
               key={index}
               image={item.image}
