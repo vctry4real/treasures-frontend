@@ -28,14 +28,13 @@ const userSlice = createSlice({
 
       // Update the state directly
       state = { ...userData };
-
       // Save the updated state to local storage
       saveToLocalStorage('accessToken', accessToken);
       saveToLocalStorage('refreshToken', refreshToken);
       saveToLocalStorage('user', state);
     },
     logout: (state) => {
-      state.user = null;
+      state = null;
 
       localStorage.removeItem('user');
       localStorage.removeItem('accessToken');

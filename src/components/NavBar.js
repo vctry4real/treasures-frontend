@@ -43,7 +43,7 @@ const NavBar = () => {
               to="/"
               smooth={true}
               duration={500}
-              className="py-2 pl-3 pr-4 text-gray-900 md:hover:text-blue-700"
+              className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
             >
               Home
             </Link>
@@ -54,7 +54,7 @@ const NavBar = () => {
               smooth={true}
               offset={-200}
               duration={500}
-              className="py-2 pl-3 pr-4 text-gray-900 md:hover:text-blue-700"
+              className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
             >
               About
             </Link>
@@ -65,9 +65,9 @@ const NavBar = () => {
               smooth={true}
               offset={50}
               duration={500}
-              className="py-2 pl-3 pr-4 text-gray-900 md:hover:text-blue-700"
+              className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
             >
-              Contact
+              Our programs
             </Link>
           </li>
           <li>
@@ -76,9 +76,9 @@ const NavBar = () => {
               smooth={true}
               offset={-50}
               duration={500}
-              className="py-2 pl-3 pr-4 text-gray-900 md:hover:text-blue-700 "
+              className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700 "
             >
-              Support
+              Our research
             </Link>
           </li>
           <li>
@@ -87,9 +87,9 @@ const NavBar = () => {
               smooth={true}
               offset={-100}
               duration={500}
-              className="py-2 pl-3 pr-4 text-gray-900  md:hover:text-blue-700"
+              className="py-2 pl-3 pr-4 text-white  md:hover:text-blue-700"
             >
-              Articles
+              Support
             </Link>
           </li>
         </ul>
@@ -182,12 +182,12 @@ const NavBar = () => {
 
         <div className="flex flex-col pt-4 items-center justify-center">
           <button className="w-full h-[60px] mb-4 mt-4 border-[3px] border-green-900  rounded-xl bg-[#E5EEEE] font-bold text-primary mr-4">
-            <Link to="/joinas" smooth={true} offset={-200}>
+            <Link to="/auth" smooth={true} offset={-200}>
               Log in
             </Link>
           </button>
           <button className="w-full h-[60px] mb-4 mt-4 border-none rounded-xl font-bold bg-primary text-white mr-4">
-            <Link to="/joinas" smooth={true} offset={-200}>
+            <Link to="/auth" smooth={true} offset={-200}>
               Sign up
             </Link>
           </button>
