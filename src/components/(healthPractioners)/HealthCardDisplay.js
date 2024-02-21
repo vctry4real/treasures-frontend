@@ -8,12 +8,17 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperButtons from '../SwiperButtons';
+import HealthCard from './HealthCard'
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+
+import { useSwiper } from "swiper/react";
+import { FaGreaterThan } from "react-icons/fa6";
+import { FaLessThan } from "react-icons/fa6";
 
 
 const HealthCardDisplay = () => {
@@ -35,9 +40,14 @@ const HealthCardDisplay = () => {
             date: "02 February 24"
         }
     ]
-    return (
-        <div className="w-full  mb-8">
 
+
+    return (
+        <div className="w-full  mb-8 relative">
+            <div className='w-full flex items-center justify-between '>
+                <h3 className='text-md font-bold'>Health Practioners to meet </h3>
+                <span><FaGreaterThan className=" text-black" /></span>
+            </div>
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination]}
@@ -55,17 +65,18 @@ const HealthCardDisplay = () => {
                 }}
 
                 // pagination={{ clickable: true }}
+                autoplay={{
+                    delay: 500,
+                }}
 
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
-               
+                className='w-full h-auto '
             >
+                {/* <SwiperButtons /> */}
 
-
-                
-                <div className='w-full h-auto flex '>
-                <SwiperButtons />    
-                    <SwiperSlide className=''>
+                <SwiperSlide className='mt-[20px]'>
+                    <HealthCard>
                         <div className="w-[240] h-[288px]">
                             <div >
 
@@ -85,25 +96,26 @@ const HealthCardDisplay = () => {
                                 </div>
                             </div>
                         </div>
-                    </SwiperSlide>
+                    </HealthCard>
+                </SwiperSlide>
 
-                    {HealthCardInfoData.map((item, index) => {
-                        return (
-                            <SwiperSlide>
-                                <HealthItemsCard
-                                    key={index}
-                                    image={item.image}
-                                    name={item.name}
-                                    description={item.description}
-                                    history={item.history}
-                                    date={item.date}
-                                />
-                            </SwiperSlide>
-                        )
+                {HealthCardInfoData.map((item, index) => {
+                    return (
+                        <SwiperSlide className='mt-[20px]'>
+                            <HealthItemsCard
+                                key={index}
+                                image={item.image}
+                                name={item.name}
+                                description={item.description}
+                                history={item.history}
+                                date={item.date}
+                            />
+                        </SwiperSlide>
+                    )
 
-                    })}
+                })}
 
-                </div>
+
 
             </Swiper>
         </div >
