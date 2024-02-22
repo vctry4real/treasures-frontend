@@ -1,30 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PrivateApi } from '../api';
 
-const useProfile = (currentUser) => {
-  const [currentUserProfile, setCurrentUserProfile] = useState(null);
-  const [error, setError] = useState(null);
+const useProfile = () => {
+  const [profile, setProfile] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { status, data } = await PrivateApi.get(
-          '/profile/' + currentUser.email
-        );
-        if (status === 200) {
-          setCurrentUserProfile(data);
-        }
-      } catch (error) {
-        setError(error);
+  const fetchProfile = async (currentUser) => {
+    try {
+      const { status, data } = await PrivateApi.get(
+        `/profile/${currentUser.email}`
+      );
+      if (status === 200) {
+        setProfile(data);
+        return data;
       }
-    };
-
-    if (currentUser) {
-      fetchData();
+    } catch (error) {
+      throw error;
     }
-  }, [currentUser]);
+  };
 
-  return { currentUserProfile, error };
+  return { profile, fetchProfile };
 };
 
 export default useProfile;

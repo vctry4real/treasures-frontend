@@ -1,6 +1,5 @@
 import React from 'react';
 import { ChildInput, ChildDocInput } from './ChildInput';
-import Calendar from 'react-calendar';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
@@ -22,10 +21,12 @@ const ChildForm = (props) => {
   const { alert, showAlert } = useAlertContext();
   // const navigate = useNavigate();
 
+  // create date variable
   const [date, setDate] = useState(new Date());
   const { childRegistrationData, setChildRegistrationData, handleNextStep } =
     useChildRegisterContext();
 
+  // alternate form if the provider is unnecessary and only the component is used
   const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
@@ -42,6 +43,7 @@ const ChildForm = (props) => {
     setDate(date);
     const currentDate = new Date();
 
+    //calculate the age from DoB
     const age = currentDate.getFullYear() - date.getFullYear();
     setFormData((prev) => ({
       ...prev,
@@ -215,12 +217,13 @@ const ChildForm = (props) => {
 
 export default ChildForm;
 
-// const childSchema = Schema({
+// const child= ({
 //   //uid
 //   fullName: {
 //     type: String,
 //     required: true,
 //   },
+
 //   dob: {
 //     type: Date,
 //     validate: {

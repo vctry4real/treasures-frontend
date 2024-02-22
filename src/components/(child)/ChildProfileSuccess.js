@@ -68,20 +68,6 @@ const ChildPersonalList = ({ keys }) => {
   );
 };
 
-// const ChildPersonalList = () => {
-// const { childRegistrationData } = useChildRegisterContext();
-
-//   // console.log(keys);
-//   return (
-//     <div>
-//       {detailKeys.map((key, index) => {
-//         // return <ChildListItem />;
-//         return { ChildListItem };
-//       })}
-//     </div>
-//   );
-// };
-
 const PersonalDocList = ({ docs }) => {
   // console.log(keys);
   return (

@@ -38,9 +38,9 @@ const ChildRegistrationSlide = () => {
   };
   return (
     <div>
-      {/* <CardWrapper className="mt-12 p-6 flex flex-col items-center "> */}
-      <ActiveSLide {...{ childProgress }} />
-      {/* </CardWrapper> */}
+      <CardWrapper className="mt-12 p-6 flex flex-col items-center justify-center">
+        <ActiveSLide {...{ childProgress }} />
+      </CardWrapper>
     </div>
   );
 };
