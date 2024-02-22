@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDashboardContext } from '../../providers/DashboardProvider';
 import { useSelector } from 'react-redux';
 import useProfile from '../../hooks/useProfile';
+import { useAlertContext } from '../../providers/AlertProvider';
 
 const ProfileData = [
   {
@@ -15,9 +16,26 @@ const ProfileData = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const { showAlert } = useAlertContext();
   const { currentUser, handleLogout } = useDashboardContext();
+  const [currentProfile, setCurrentProfile] = useState();
+  const { profile, fetchProfile } = useProfile();
 
-  const { currentUserProfile, error } = useProfile(currentUser);
+  const fetchData = useCallback(async (currentUser) => {
+    try {
+      const profile = await fetchProfile(currentUser);
+
+      setCurrentProfile(profile);
+    } catch (error) {
+      showAlert({ text: 'Error user fetching profile', type: 'danger' });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchData(currentUser);
+    }
+  }, [currentUser]);
 
   const toggleNavDropdown = () => {
     setNavOpen(!navOpen);
@@ -115,9 +133,7 @@ const Navbar = () => {
 
           {/* The entire profile menu begins here */}
           <div className="relative flex items-center gap-4">
-            <span className="text-white">
-              Welcome {currentUserProfile?.fullName}
-            </span>
+            <span className="text-white">Welcome {profile?.fullName}</span>
             {/* Profile menu image */}
             <button
               type="button"
