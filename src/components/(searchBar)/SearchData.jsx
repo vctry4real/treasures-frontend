@@ -1,10 +1,5 @@
-import React from 'react'
-import { useState } from 'react'
-
-const SearchBar = () => {
-
-    const [searchInput, setSearchInput] = useState('')
-    const doctorFilter = {
+export const DoctorFilter = [
+    {
         specialization: {
             AdolescentMedicine: "Adolescent Medicine",
             ChildAbusePediatrics: "Child Abuse Pediatrics",
@@ -25,6 +20,8 @@ const SearchBar = () => {
             PediatricSportsMedicine: "Pediatric Sports Medicine",
             PediatricTransplantHepatology: "Pediatric Transplant Hepatology"
         },
+    },
+    {
         location: {
             AbiaState: "Abia State",
             AdamawaState: "Adamawa State",
@@ -64,13 +61,5 @@ const SearchBar = () => {
             ZamfaraState: "Zamfara State",
             FCTAbuja: "FCT Abuja"
         }
-    };
-    
-   
-    
-    return (
-        <div>SearchBar</div>
-    )
-}
-
-export default SearchBar
+    }
+];
