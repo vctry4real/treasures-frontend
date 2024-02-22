@@ -35,13 +35,23 @@ const RegistrationSlide = () => {
           <>
             {' '}
             <SelectUserTypeList />
-            <button onClick={handleNextStep}>Next</button>
+            <button
+              onClick={handleNextStep}
+              className="bg-primary p-4 rounded-3xl mt-4 w-full flex justify-center gap-2 text-white hover:bg-lightGreen"
+            >
+              Next
+            </button>
           </>
         ) : progress === 1 ? (
           <>
             {' '}
             <SelectReasonList />
-            <button onClick={handleNextStep}>Next</button>
+            <button
+              onClick={handleNextStep}
+              className="bg-primary p-4 rounded-3xl mt-4 w-full flex justify-center gap-2 text-white hover:bg-lightGreen"
+            >
+              Next
+            </button>
           </>
         ) : progress === 2 ? (
           <>
@@ -62,16 +72,16 @@ const RegistrationSlide = () => {
   return (
     <div className="w-full">
       <ThreeBarProgressBar {...{ progress }} />
-      <CardWrapper className="mt-12 p-6 flex flex-col items-center ">
-        <ActiveSLide {...{ progress }} />
-        <span className="mt-4 text-gray-500">
-          {' '}
-          Have an account?{' '}
-          <Link to="/auth" className="text-yellow-400">
-            Signin
-          </Link>
-        </span>
-      </CardWrapper>
+      {/* <CardWrapper className="mt-12 p-6 flex flex-col items-center "> */}
+      <ActiveSLide {...{ progress }} />
+      <span className="mt-4 text-gray-500">
+        {' '}
+        Have an account?{' '}
+        <Link to="/auth" className="text-[#f8b400]">
+          Signin
+        </Link>
+      </span>
+      {/* </CardWrapper> */}
     </div>
   );
 };

@@ -12,6 +12,10 @@ import Help from './pages/Help';
 import Dashboard from './pages/Dashboard';
 import DashboardDisplay from './components/dashboard/DashboardDisplay';
 
+// remove
+import ChildCreation from './pages/ChildCreation';
+import ChildProfileSuccess from './components/(child)/ChildProfileSuccess';
+
 const ProtectedRoute = () => {
   const currentUserRedux = useSelector((state) => state.user);
   const currentUserLocalStorage = JSON.parse(localStorage.getItem('user'));
@@ -40,15 +44,25 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/" element={<ProtectedRoute />}>
+          <Route path="/childregistration" element={<ChildCreation />} />
+          <Route
+            path="/childprofilesuccess"
+            element={<ChildProfileSuccess />}
+          />
+
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="/dashboard/display" element={<DashboardDisplay />} />
             <Route path="/dashboard/booking" element={<Booking />} />
             <Route path="/dashboard/profile" element={<Profile />} />
             <Route path="/dashboard/premium" element={<Premium />} />
             <Route path="/dashboard/help" element={<Help />} />
+            {/* Remove */}
+            {/* <Route
+              path="/dashboard/childcreation"
+              element={<ChildCreation />}
+            /> */}
           </Route>
         </Route>
-
         <Route path="/register" element={<RegisterUser />} />
       </Routes>
     </>

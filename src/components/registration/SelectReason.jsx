@@ -55,8 +55,8 @@ export default SelectReasonList;
 const SelectReasonItem = ({ registrationData, reason, handleChange }) => {
   return (
     <div
-      className="w-full bg-white justify-center cursor-pointer hover:bg-gray-200 active:bg-gray-400 focus:bg-gray-400 
-      flex flex-col border-2 border-gray-400 p-4 gap-4 mb-4 shadow-3xl rounded-md bg-grey-800"
+      className={`w-full ${registrationData.reason === reason.title ? 'bg-greenBtnActiveBg border-greenBtnActiveBorder' : ' bg-greenBtnInActiveBg border-greenBtnInActiveBorder'} justify-center cursor-pointer active:bg-gray-200
+      flex flex-col border-2 border-gray-400 p-4 gap-4 mb-4 shadow-3xl rounded-md bg-grey-800`}
     >
       <div className=" w-full flex flex-row justify-between items-center align-center ">
         <div className="flex items-center justify-center h-8 w-8 p-4 rounded-md bg-gray-200 mx-2">

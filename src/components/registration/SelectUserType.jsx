@@ -60,9 +60,11 @@ export default SelectUserTypeList;
 
 const SelectUserTypeItem = ({ registrationData, userType, handleChange }) => {
   return (
-    <div className=" flex flex-col border-2 border-grey p-4 gap-4 mb-4 max-w-700 w-full shadow-3xl rounded-md bg-grey-800">
+    <div
+      className={`flex flex-col ${registrationData.type === userType.title ? 'bg-greenBtnActiveBg border-greenBtnActiveBorder' : ' bg-greenBtnInActiveBg border-greenBtnInActiveBorder'} border-2 border-grey p-4 gap-4 mb-4 max-w-700 w-full shadow-3xl rounded-md active:bg-gray-200`}
+    >
       <div className="flex justify-between item-center ">
-        <div className="h-8 w-8 rounded-md  bg-gray-200">{userType.icon}</div>
+        <div className="h-8 w-8 rounded-md bg-gray-200">{userType.icon}</div>
 
         <input
           name="type"

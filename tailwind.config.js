@@ -4,22 +4,22 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
-      'sm': '640px',
+      sm: '640px',
       // => @media (min-width: 640px) { ... }
 
-      'md': '768px',
+      md: '768px',
       // => @media (min-width: 768px) { ... }
 
-      'lg': '1024px',
+      lg: '1024px',
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
+      xl: '1280px',
       // => @media (min-width: 1280px) { ... }
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
-    
+
     extend: {
       backgroundColor: {
         primary: 'var(--color-primary)', // Corrected from --bg-primary
@@ -34,12 +34,18 @@ module.exports = {
         'secondary-700': '#b37a00',
         'secondary-800': '#8e5c00',
         'secondary-900': '#694000',
+
+        greenBtnActiveBg: 'var(--color-greenBtnActiveBg)',
+        greenBtnActiveBorder: 'var(--color-greenBtnActiveBorder)',
+        greenBtnInactiveBg: 'var(--color-greenBtnInactiveBg)',
+        greenBtnInactiveBorder: 'var(--color-greenBtnInactiveBorder)',
       },
 
       textColor: {
         color: {
           gray: 'var(--text-white-bg)',
           white: 'var(--text-colored-bg)',
+          secondarys: '#f8b400',
         },
       },
       fontSize: {
@@ -47,6 +53,9 @@ module.exports = {
         base: ['16px', '24px'],
         lg: ['20px', '28px'],
         xl: ['24px', '32px'],
+      },
+      fontFamily: {
+        outfit: ['Outfit', 'sans-serif'],
       },
       fontWeight: {
         thin: '100',
@@ -68,7 +77,6 @@ module.exports = {
           hover: 'var(--color-button-hover)', // Include hover state directly in btn
         },
       },
-      
     },
   },
 };

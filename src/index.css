@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@font-face {
+  font-family: "Outfit", sans-serif;
+  /* src: url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); */
+}
+
 @layer base {
   :root {
     --color-primary: #003b3b;
@@ -23,7 +30,11 @@
     --color-secondary-700: #b37a00;
     --color-secondary-800: #8e5c00;
     --color-secondary-900: #694000;
+
+    --color-greenBtnActiveBg: #B2CCCC;
+    --color-greenBtnActiveBorder: #E5EEEE;
+    --color-greenBtnInactiveBg: #E0E0E0;
+    --color-greenBtnInactiveBorder: #FAFAFA;
    
   }
-  
 }
