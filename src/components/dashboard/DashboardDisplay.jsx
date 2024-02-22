@@ -14,12 +14,41 @@ import { FaPhoneAlt } from 'react-icons/fa';
 
 import { Link, Outlet } from 'react-router-dom';
 
-import { Pagination } from 'swiper/modules';
-
 import DoctorCardDisplay from '../(doctorCards)/DoctorCardDisplay';
 import HealthCardDisplay from '../(healthPractioners)/HealthCardDisplay';
+import useProfile from '../../hooks/useProfile';
+import { useCallback, useEffect, useState } from 'react';
+import { useAlertContext } from '../../providers/AlertProvider';
+import useUser from '../../hooks/useUser';
 
 const DashboardDisplay = () => {
+  const currentUser = useUser();
+  const { fetchProfile } = useProfile();
+  const { showAlert } = useAlertContext();
+  const [loading, setLoading] = useState(true);
+  const [currentProfile, setCurrentProfile] = useState();
+
+  const fetchData = useCallback(async (currentUser) => {
+    try {
+      const profile = await fetchProfile(currentUser);
+
+      setCurrentProfile(profile);
+    } catch (error) {
+      showAlert({ text: 'Error user fetching profile', type: 'danger' });
+    }
+  }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    if (currentUser) {
+      fetchData(currentUser);
+      setLoading(false);
+    }
+  }, [currentUser]);
+
+  if (loading || !currentProfile) {
+    return <div className="pt-20">Loading...</div>;
+  }
   return (
     <div className="p-4 ">
       <div className="p-4   rounded-lg  ">

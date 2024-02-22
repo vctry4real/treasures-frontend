@@ -7,6 +7,7 @@ import { useRegisterContext } from '../../providers/RegisterProvider';
 const Signup = () => {
   const { handleSubmit, registrationData, setRegistrationData } =
     useRegisterContext();
+  const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -106,6 +107,23 @@ const Signup = () => {
         type="submit"
         className="w-full mt-4 bg-primary hover:bg-lightGreen text-white p-2 rounded hover:bg-blue-600"
       >
+        {' '}
+        {isLoading ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5 animate-spin mr-2 inline-block align-middle"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
+        ) : null}
         Signup
       </button>
     </motion.form>

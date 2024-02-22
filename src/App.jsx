@@ -25,13 +25,17 @@ const ProtectedRoute = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Automatically navigate to the authentication page if no current user
-    if (!currentUser || currentUser === null) {
-      return navigate('/auth', { replace: true });
-    }
-    // Normalize the pathname
     const normalizedPathname = location.pathname.replace(/\/$/, ''); // Remove trailing slash if present
 
+    // Automatically navigate to the authentication page if no current user
+    if (!currentUser || currentUser === null) {
+      if (
+        normalizedPathname !== '/register' &&
+        normalizedPathname !== '/auth'
+      ) {
+        return navigate('/auth', { replace: true });
+      }
+    }
     // Check if we are in /register or /auth route
     if (normalizedPathname === '/register' || normalizedPathname === '/auth') {
       // Check if currentUser is not null
@@ -54,7 +58,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/register" element={<RegisterUser />} />
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="/dashboard/" element={<DashboardDisplay />} />
+            <Route path="/dashboard" element={<DashboardDisplay />} />
             <Route path="/dashboard/booking" element={<Booking />} />
             <Route path="/dashboard/profile" element={<Profile />} />
             <Route path="/dashboard/premium" element={<Premium />} />
