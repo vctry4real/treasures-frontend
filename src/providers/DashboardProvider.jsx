@@ -1,40 +1,58 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { useAlertContext } from './AlertProvider';
 import { PrivateApi } from '../api';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/slice/userSlice';
 import { useNavigate } from 'react-router-dom';
+import useUser from '../hooks/useUser';
+import useProfile from '../hooks/useProfile';
 
 const DashboardContext = createContext({});
 
 const DashboardProvider = ({ children }) => {
+  const currentUser = useUser();
+  const { fetchProfile } = useProfile();
   const { showAlert } = useAlertContext();
+  const [currentProfile, setCurrentProfile] = useState();
   const navigate = useNavigate();
-
-  const currentUserRedux = useSelector((state) => state.user);
-  const currentUserLocalStorage = JSON.parse(localStorage.getItem('user'));
-  const currentUser = currentUserRedux || currentUserLocalStorage;
-
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
-  const getCurrentUserProfile = async (email) => {
+  const fetchData = useCallback(async (currentUser) => {
     try {
-      const { status, data } = await PrivateApi.get('/profile/' + email);
-      if (status === 200) {
-        return data;
-      }
+      const profile = await fetchProfile(currentUser);
+
+      setCurrentProfile(profile);
     } catch (error) {
-      throw error;
+      showAlert({ text: 'Error user fetching profile', type: 'danger' });
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    if (currentUser) {
+      fetchData(currentUser);
+      setLoading(false);
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    console.log(currentProfile);
+  }, [currentProfile]);
 
   const handleLogout = () => {
     dispatch(logout());
     navigate('/');
   };
 
-  const dataToSend = { currentUser, handleLogout };
+  const dataToSend = { loading, currentUser, currentProfile, handleLogout };
   return (
     <DashboardContext.Provider value={dataToSend}>
       {children}
