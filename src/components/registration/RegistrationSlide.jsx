@@ -7,7 +7,7 @@ import { useRegisterContext } from '../../providers/RegisterProvider';
 import SelectReasonList from './SelectReason';
 import GoogleAuth from '../temp/GoogleAuth';
 import Success from './Success';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function ThreeBarProgressBar({ progress }) {
   return (
@@ -72,16 +72,16 @@ const RegistrationSlide = () => {
   return (
     <div className="w-full">
       <ThreeBarProgressBar {...{ progress }} />
-      {/* <CardWrapper className="mt-12 p-6 flex flex-col items-center "> */}
-      <ActiveSLide {...{ progress }} />
-      <span className="mt-4 text-gray-500">
-        {' '}
-        Have an account?{' '}
-        <Link to="/auth" className="text-[#f8b400]">
-          Signin
-        </Link>
-      </span>
-      {/* </CardWrapper> */}
+      <CardWrapper className="mt-12 p-6 flex flex-col items-center ">
+        <ActiveSLide {...{ progress }} />
+        <span className="mt-4 text-gray-500">
+          {' '}
+          Have an account?{' '}
+          <Link to="/auth" className="text-[#f8b400]">
+            Signin
+          </Link>
+        </span>
+      </CardWrapper>
     </div>
   );
 };

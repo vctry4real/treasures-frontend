@@ -57,7 +57,6 @@ const ChildForm = (props) => {
     console.log('Form Submitted', formData);
     setChildRegistrationData(formData);
     handleNextStep();
-    // navigate('/childprofilesuccess');
   };
 
   return (
@@ -83,9 +82,7 @@ const ChildForm = (props) => {
           />
 
           <div>
-            <p className="block mb-1 text-sm text-gray-600" for="dob">
-              Date of Birth
-            </p>
+            <p className="block mb-1 text-sm text-gray-600">Date of Birth</p>
             <DatePicker
               name="Date of Birth"
               id="dob"

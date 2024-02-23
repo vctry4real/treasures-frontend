@@ -11,8 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const ChildRegistrationSlide = () => {
   const navigate = useNavigate();
-  const { childProgress, handleNextStep, handlePreviousStep } =
-    useChildRegisterContext();
+  const { childProgress } = useChildRegisterContext();
 
   const ActiveSLide = ({ childProgress }) => {
     return (
@@ -38,7 +37,7 @@ const ChildRegistrationSlide = () => {
   };
   return (
     <div>
-      <CardWrapper className="mt-12 p-6 flex flex-col items-center justify-center">
+      <CardWrapper className="mt-12 p-6 w-full flex flex-col items-center justify-center">
         <ActiveSLide {...{ childProgress }} />
       </CardWrapper>
     </div>

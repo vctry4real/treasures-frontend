@@ -38,16 +38,16 @@ const detailKeys = [
 
 const documentKeys = ['Picture', 'Birth Certificate', 'Medical Documents'];
 
-const ChildListItem = (key) => {
+const ChildListItem = ({ item }) => {
   const { childRegistrationData } = useChildRegisterContext();
   return (
     // <p>{userProps[item]}</p>
     <div className="flex flex-row even:bg-[#fafafa] odd:bg-[#f5f5f5]">
       <div className="w-1/3">
-        <p className="text-left">{key}</p>
+        <p className="text-left">{item}</p>
       </div>
       <div className="w-2/3">
-        <p className="text-left ">{childRegistrationData[key]}</p>
+        <p className="text-left ">{childRegistrationData[item]}</p>
       </div>
     </div>
   );
@@ -58,11 +58,8 @@ const ChildPersonalList = ({ keys }) => {
   // console.log(keys);
   return (
     <div>
-      {keys.map((key, index) => {
-        // {keys.map((key, i) => {
-        // console.log(key);
-        return ChildListItem(key);
-        // return <ChildListItem index={i} item={key} />;
+      {keys.map((val, index) => {
+        return <ChildListItem key={index} item={val} />;
       })}
     </div>
   );
@@ -155,13 +152,12 @@ const ChildProfileSuccess = (props) => {
   };
 
   return (
-    <motion.section
+    <motion.form
       key={'childcreated'}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      // onSubmit={handleSubmit}
-      // className="w-full max-w-sm "
+      // onSubmit={() => {}}
     >
       <section className="p-10 flex flex-col">
         <h1 className="text-center text-[#212121] text-2xl font-weight-black font-outfit">
@@ -203,7 +199,7 @@ const ChildProfileSuccess = (props) => {
           </div>
         </button>
       </section>
-    </motion.section>
+    </motion.form>
   );
 };
 

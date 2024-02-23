@@ -43,7 +43,7 @@ export const ChildInput = ({
             value={val}
             placeholder={placeholderText}
             {...(labelText !== 'Allergies' || labelText !== 'Disabilites'
-              ? ''
+              ? 'required'
               : '')}
             className="flex w-full border-2 border-gray-400 p-3 mb-2 shadow-3xl rounded-md bg-grey-800 focus:border-[#003B3B] bg-[#FAFAFA]"
           ></input>
@@ -64,7 +64,7 @@ export const ChildDocInput = ({
   labelText,
   placeholderText,
   multi = false,
-  height = 1,
+  height = 2,
   type = 'text',
 }) => {
   const [file, setFile] = useState();

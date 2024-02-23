@@ -19,9 +19,10 @@ import Dashboard from './pages/Dashboard';
 import DashboardDisplay from './components/dashboard/DashboardDisplay';
 import useUser from './hooks/useUser';
 
-// remove
+// added
 import ChildCreation from './pages/ChildCreation';
 import ChildProfileSuccess from './components/(child)/ChildProfileSuccess';
+import DoctorPage from './pages/DoctorPage';
 
 const ProtectedRoute = () => {
   const currentUser = useUser();
@@ -64,6 +65,7 @@ function App() {
             path="/childprofilesuccess"
             element={<ChildProfileSuccess />}
           />
+          {/* <Route path="/doctorprofile" element={<DoctorPage />} /> */}
 
           <Route path="/auth" element={<Auth />} />
           <Route path="/register" element={<RegisterUser />} />
