@@ -17,12 +17,12 @@ import useUser from '../hooks/useUser';
 import useProfile from '../hooks/useProfile';
 
 const Dashboard = () => {
-  const { isOnboarding, currentUser, currentProfile, handleLogout } =
-    useDashboardContext();
+  const { isOnboarding } = useDashboardContext();
   const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
-    if (isOnboarding.valid) {
+    console.log(isOnboarding);
+    if (isOnboarding && isOnboarding.valid) {
       setOpenModal(true);
     }
   }, [isOnboarding]);
