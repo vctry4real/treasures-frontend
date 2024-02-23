@@ -21,33 +21,12 @@ import { useCallback, useEffect, useState } from 'react';
 import { useAlertContext } from '../../providers/AlertProvider';
 import useUser from '../../hooks/useUser';
 import ModalWrapper from '../common/ModalWrapper';
+import { useDashboardContext } from '../../providers/DashboardProvider';
 
 const DashboardDisplay = () => {
-  const currentUser = useUser();
-  const { fetchProfile } = useProfile();
+  const { loading, currentProfile } = useDashboardContext();
   const { showAlert } = useAlertContext();
-  const [loading, setLoading] = useState(true);
-  const [currentProfile, setCurrentProfile] = useState();
   const [openModal, setOpenModal] = useState(false);
-
-  const fetchData = useCallback(async (currentUser) => {
-    try {
-      const profile = await fetchProfile(currentUser);
-
-      setCurrentProfile(profile);
-    } catch (error) {
-      showAlert({ text: 'Error user fetching profile', type: 'danger' });
-    }
-  }, []);
-
-  useEffect(() => {
-    setLoading(true);
-    if (currentUser) {
-      fetchData(currentUser);
-      setLoading(false);
-      setOpenModal(true);
-    }
-  }, [currentUser]);
 
   if (loading || !currentProfile) {
     return <div className="pt-20">Loading...</div>;
@@ -114,25 +93,13 @@ const DashboardDisplay = () => {
 
           <div className="flex flex-col items-center rounded h-28">
             <div className="flex flex-col items-start justify-start w-full ">
-              <Link to="/">
-                <div className="flex items-center justify-center bg-gray-200 w-[64px] h-[64px] rounded-full px-4 py-2 border-2 border-gray-900 shadow-sm ">
-                  <svg
-                    className="w-3.5 h-3.5 "
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="black"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 1v16M1 9h16"
-                    />
-                  </svg>
-                </div>
-              </Link>
+              <button
+                onClick={() => setOpenModal(true)}
+                className="w-[40px] h-[40px] flex items-center justify-center bg-gray-200 rounded-full px-4 py-2 border-2 border-gray-900 shadow-sm "
+              >
+                Add
+              </button>
+
               <p className="text-md text-left text-gray-900">Add child</p>
             </div>
           </div>
@@ -260,7 +227,7 @@ const DashboardDisplay = () => {
           </div>
         </div>
       </div>
-      <ModalWrapper {...{ openModal, setOpenModal }}>Hello</ModalWrapper>
+      <ModalWrapper {...{ openModal, setOpenModal }}>Add child</ModalWrapper>
     </>
   );
 };
