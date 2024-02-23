@@ -45,7 +45,7 @@ const HealthCardDisplay = () => {
     return (
         <div className="w-full  mb-8 relative">
             <div className='w-full flex items-center justify-between '>
-                <h3 className='text-md font-bold'>Health Practioners to meet </h3>
+                <h3 className='text-md font-bold'>Health Practitioners to meet </h3>
                 <span><FaGreaterThan className=" text-black" /></span>
             </div>
             <Swiper
@@ -85,14 +85,14 @@ const HealthCardDisplay = () => {
                                 </div>
 
                                 <div className="mb-2">
-                                    <p className='font-bold text-2xl tracking-wider '>Discover Practioners</p>
+                                    <p className='font-bold text-2xl tracking-wider '>Discover Practitioners</p>
                                 </div>
                                 <div className="flex flex-col mb-3 ">
-                                    <p className='flex items-center'>Explore from over 3k health practioners</p>
+                                    <p className='flex items-center'>Explore from over 3k health practitioners</p>
                                 </div>
 
                                 <div className='w-full text-white'>
-                                    <button className='text-xl font-medium p-4 bg-blue-500 rounded-xl w-full'>Discover Practioners</button>
+                                    <button className='text-xl font-medium p-4 bg-blue-500 rounded-xl w-full'>Discover Practitioners</button>
                                 </div>
                             </div>
                         </div>

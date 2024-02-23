@@ -41,7 +41,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/"
-              smooth={true}
+              smooth={"true"}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
             >
@@ -51,7 +51,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/about"
-              smooth={true}
+              smooth={"true"}
               offset={-200}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
@@ -62,7 +62,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/contact"
-              smooth={true}
+              smooth={"true"}
               offset={50}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
@@ -73,7 +73,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/partners"
-              smooth={true}
+              smooth={"true"}
               offset={-50}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700 "
@@ -84,7 +84,7 @@ const NavBar = () => {
           <li>
             <Link
               to="platforms"
-              smooth={true}
+              smooth={"true"}
               offset={-100}
               duration={500}
               className="py-2 pl-3 pr-4 text-white  md:hover:text-blue-700"
@@ -99,7 +99,7 @@ const NavBar = () => {
           <div className="md:w-full flex flex-row justify-center ">
             <button
               className="flex items-center justify-center font-bold text-primary bg-yellow-400 tracking-wider rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4  "
-              smooth={true} offset={-100} duration={500}
+              smooth={"true"} offset={-100} duration={500}
               onClick={() => {
                 navigate('/register');
               }}
@@ -124,7 +124,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/"
-            smooth={true}
+            smooth={"true"}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
           >
@@ -135,7 +135,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/about"
-            smooth={true}
+            smooth={"true"}
             offset={-200}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -147,7 +147,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/contact"
-            smooth={true}
+            smooth={"true"}
             offset={50}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -159,7 +159,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/parners"
-            smooth={true}
+            smooth={"true"}
             offset={-50}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -171,7 +171,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/articles"
-            smooth={true}
+            smooth={"true"}
             offset={-100}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -182,12 +182,12 @@ const NavBar = () => {
 
         <div className="flex flex-col pt-4 items-center justify-center">
           <button className="w-full h-[60px] mb-4 mt-4 border-[3px] border-green-900  rounded-xl bg-[#E5EEEE] font-bold text-primary mr-4">
-            <Link to="/auth" smooth={true} offset={-200}>
+            <Link to="/auth" smooth={"true"} offset={-200}>
               Log in
             </Link>
           </button>
           <button className="w-full h-[60px] mb-4 mt-4 border-none rounded-xl font-bold bg-primary text-white mr-4">
-            <Link to="/auth" smooth={true} offset={-200}>
+            <Link to="/auth" smooth={"true"} offset={-200}>
               Sign up
             </Link>
           </button>
