@@ -95,9 +95,9 @@ const DashboardDisplay = () => {
             <div className="flex flex-col items-start justify-start w-full ">
               <button
                 onClick={() => setOpenModal(true)}
-                className="w-[40px] h-[40px] flex items-center justify-center bg-gray-200 rounded-full px-4 py-2 border-2 border-gray-900 shadow-sm "
+                className="w-[40px] h-[40px] flex items-center justify-center bg-gray-200 rounded-full p-2 border-2 border-gray-900 shadow-sm "
               >
-                <FaPlus />
+                <FaPlus fontSize={'20px'} />
               </button>
 
               <p className="text-md text-left text-gray-900">Add child</p>
