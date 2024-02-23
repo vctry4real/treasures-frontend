@@ -21,10 +21,16 @@ import { useCallback, useEffect, useState } from 'react';
 import { useAlertContext } from '../../providers/AlertProvider';
 import useUser from '../../hooks/useUser';
 
+import ModalWrapper from '../common/ModalWrapper';
+import { useDashboardContext } from '../../providers/DashboardProvider';
+
 const DashboardDisplay = () => {
-  const currentUser = useUser();
-  const { fetchProfile } = useProfile();
+  const { loading, currentProfile } = useDashboardContext();
   const { showAlert } = useAlertContext();
+
+  const [openModal, setOpenModal] = useState(false);
+
+
   const [loading, setLoading] = useState(true);
   const [currentProfile, setCurrentProfile] = useState();
 
@@ -45,6 +51,7 @@ const DashboardDisplay = () => {
       setLoading(false);
     }
   }, [currentUser]);
+
 
   if (loading || !currentProfile) {
     return <div className="pt-20">Loading...</div>;
@@ -79,7 +86,11 @@ const DashboardDisplay = () => {
               </p>
             </div>
           </div>
+
+          <div className="w-full ml-[20px]  md:flex md:ml-0  ">
+
           <div className="w-full ml-[20px] md:block md:flex ml-0  ">
+
             <button className="p-2 rounded-2xl border w-[120px] bg-slate-100">
               See upcoming
             </button>
@@ -108,6 +119,19 @@ const DashboardDisplay = () => {
 
         {/* Add child profile Icon */}
 
+
+          <div className="flex flex-col items-center rounded h-28">
+            <div className="flex flex-col items-start justify-start w-full ">
+              <button
+                onClick={() => setOpenModal(true)}
+                className="w-[40px] h-[40px] flex items-center justify-center bg-gray-200 rounded-full px-4 py-2 border-2 border-gray-900 shadow-sm "
+              >
+                Add
+              </button>
+
+              <p className="text-md text-left text-gray-900">Add child</p>
+            </div>
+
         <div className="flex flex-col items-center rounded h-28">
           <div className="flex flex-col items-start justify-start w-full ">
             <Link to="/">
@@ -130,6 +154,7 @@ const DashboardDisplay = () => {
               </div>
             </Link>
             <p className="text-md text-left text-gray-900">Add child</p>
+
           </div>
         </div>
 
@@ -249,7 +274,12 @@ const DashboardDisplay = () => {
           </div>
         </div>
       </div>
+
+      <ModalWrapper {...{ openModal, setOpenModal }}>Add child</ModalWrapper>
+    </>
+
     </div>
+
   );
 };
 

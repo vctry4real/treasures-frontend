@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { Link, Outlet } from 'react-router-dom';
 import { useRef, useState } from 'react';
@@ -9,9 +9,17 @@ import 'swiper/css/pagination';
 
 import Navbar from '../components/dashboard/Navbar';
 import SideNav from '../components/dashboard/SideNav';
-import DashboardProvider from '../providers/DashboardProvider';
+import DashboardProvider, {
+  useDashboardContext,
+} from '../providers/DashboardProvider';
+import ModalWrapper from '../components/common/ModalWrapper';
+import useUser from '../hooks/useUser';
+import useProfile from '../hooks/useProfile';
 
 const Dashboard = () => {
+  const { currentUser, currentProfile, handleLogout } = useDashboardContext();
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <DashboardProvider>
       <div className="h-screen overflow-hidden">
@@ -23,6 +31,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <ModalWrapper {...{ openModal, setOpenModal }}>Hello</ModalWrapper>
     </DashboardProvider>
   );
 };
