@@ -53,6 +53,7 @@ const GoogleAuthProvider = ({ children }) => {
           navigate(from);
         }
       } catch (error) {
+        console.log(error);
         console.error('Error sending credential to backend:', error);
       }
     }
