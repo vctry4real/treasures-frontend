@@ -1,5 +1,6 @@
-export const DoctorFilter = [
-    {
+export const DoctorFilter = {    
+
+
         specialization: {
             AdolescentMedicine: "Adolescent Medicine",
             ChildAbusePediatrics: "Child Abuse Pediatrics",
@@ -20,8 +21,9 @@ export const DoctorFilter = [
             PediatricSportsMedicine: "Pediatric Sports Medicine",
             PediatricTransplantHepatology: "Pediatric Transplant Hepatology"
         },
-    },
-    {
+
+
+    
         location: {
             AbiaState: "Abia State",
             AdamawaState: "Adamawa State",
@@ -61,5 +63,5 @@ export const DoctorFilter = [
             ZamfaraState: "Zamfara State",
             FCTAbuja: "FCT Abuja"
         }
-    }
-];
+    
+};
