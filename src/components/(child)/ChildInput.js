@@ -36,7 +36,9 @@ export const ChildInput = ({
             max={max}
             name={name}
             type={
-              labelText === 'Height' || labelText === 'Weight' ? 'number' : ''
+              labelText === 'Height (cm)' || labelText === 'Weight (kg)'
+                ? 'number'
+                : ''
             }
             value={val}
             placeholder={placeholderText}

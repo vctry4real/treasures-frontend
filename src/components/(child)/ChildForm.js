@@ -102,7 +102,7 @@ const ChildForm = (props) => {
             <div className={`flex-1 rounded-lg p-1 drop-shadow-lg`}>
               <ChildInput
                 name="Weight"
-                labelText={'Weight'}
+                labelText={'Weight (kg)'}
                 onChange={handleChange}
                 placeholderText="kg"
                 // placeholderText={heightInInchs ? 'In' : 'cm'}
@@ -112,7 +112,7 @@ const ChildForm = (props) => {
             <div className={`flex-1 rounded-lg p-1 drop-shadow-lg`}>
               <ChildInput
                 name="Height"
-                labelText={'Height'}
+                labelText={'Height (cm)'}
                 onChange={handleChange}
                 placeholderText="cm"
                 // placeholderText={heightInInchs ? 'In' : 'cm'}
