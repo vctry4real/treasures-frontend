@@ -54,7 +54,7 @@ const DashboardDisplay = () => {
       <div className="p-4   rounded-lg  ">
         <div className="flex flex-col items-center gap-2 text-left p-2 h-auto mb-9 rounded-xl bg-primary">
           <p className="w-full text-md text-white text-left">
-            Get Started with Treasure Consultant
+            Get Started with Treasures Consultant
           </p>
           <h3 className="w-full flex items-center text-white text-left text-md font-bold">
             Browse Health Professional{' '}
@@ -63,7 +63,7 @@ const DashboardDisplay = () => {
             </span>
           </h3>
         </div>
-        <div className=" w-full flex flex-row  mb-6">
+        <div className=" w-full flex flex-col  mb-6">
           <div className="flex flex-col items-center justify-center rounded bg-transparent">
             <div className="text-left w-full">
               {' '}
@@ -79,7 +79,7 @@ const DashboardDisplay = () => {
               </p>
             </div>
           </div>
-          <div className="w-full ml-[20px] md:flex justify-end  ">
+          <div className="w-full ml-[20px] md:block md:flex ml-0  ">
             <button className="p-2 rounded-2xl border w-[120px] bg-slate-100">
               See upcoming
             </button>

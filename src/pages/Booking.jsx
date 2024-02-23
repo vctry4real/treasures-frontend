@@ -1,5 +1,6 @@
 import React from 'react';
 import { SiGooglemaps } from "react-icons/si";
+import SearchBar from '../components/(searchBar)/SearchBar';
 
 const Booking = () => {
   return (
@@ -17,7 +18,7 @@ const Booking = () => {
         </div>
         {/* Search Box */}
         <div className="flex flex-row items-center ">
-            
+            <SearchBar/>
         </div>
       </div>
     </div >
