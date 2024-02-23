@@ -12,7 +12,7 @@ import { IoBookSharp } from 'react-icons/io5';
 import { IoFolderSharp } from 'react-icons/io5';
 import { FaPhoneAlt } from 'react-icons/fa';
 
-import { Link, Outlet } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa6';
 
 import DoctorCardDisplay from '../(doctorCards)/DoctorCardDisplay';
 import HealthCardDisplay from '../(healthPractioners)/HealthCardDisplay';
@@ -97,7 +97,7 @@ const DashboardDisplay = () => {
                 onClick={() => setOpenModal(true)}
                 className="w-[40px] h-[40px] flex items-center justify-center bg-gray-200 rounded-full px-4 py-2 border-2 border-gray-900 shadow-sm "
               >
-                Add
+                <FaPlus />
               </button>
 
               <p className="text-md text-left text-gray-900">Add child</p>

@@ -30,7 +30,7 @@ const DashboardProvider = ({ children }) => {
     try {
       const profile = await fetchProfile(currentUser);
       setCurrentProfile(profile);
-      console.log(profile);
+
       const { isOnboarding } = profile;
       if (isOnboarding) {
         setIsOnboarding(isOnboarding);

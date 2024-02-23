@@ -21,7 +21,6 @@ const Dashboard = () => {
   const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
-    console.log(isOnboarding);
     if (isOnboarding && isOnboarding.valid) {
       setOpenModal(true);
     }
