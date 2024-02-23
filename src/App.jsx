@@ -18,6 +18,7 @@ import Help from './pages/Help';
 import Dashboard from './pages/Dashboard';
 import DashboardDisplay from './components/dashboard/DashboardDisplay';
 import useUser from './hooks/useUser';
+import ChildAccount from './components/childAccount';
 
 const ProtectedRoute = () => {
   const currentUser = useUser();
@@ -49,6 +50,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/childaccount" element={<ChildAccount />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/auth" element={<Auth />} />
