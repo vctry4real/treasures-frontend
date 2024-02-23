@@ -18,6 +18,7 @@ import Help from './pages/Help';
 import Dashboard from './pages/Dashboard';
 import DashboardDisplay from './components/dashboard/DashboardDisplay';
 import useUser from './hooks/useUser';
+import DashboardProvider from './providers/DashboardProvider';
 
 const ProtectedRoute = () => {
   const currentUser = useUser();
@@ -57,7 +58,14 @@ function App() {
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/auth" element={<Auth />} />
           <Route path="/register" element={<RegisterUser />} />
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route
+            path="/dashboard"
+            element={
+              <DashboardProvider>
+                <Dashboard />
+              </DashboardProvider>
+            }
+          >
             <Route path="/dashboard" element={<DashboardDisplay />} />
             <Route path="/dashboard/booking" element={<Booking />} />
             <Route path="/dashboard/profile" element={<Profile />} />

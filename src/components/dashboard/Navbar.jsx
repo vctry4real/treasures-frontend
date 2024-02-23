@@ -124,11 +124,9 @@ const Navbar = () => {
               onClick={toggleDropdown}
             >
               <span className="sr-only">Open user menu</span>
-              <img
-                className="w-8 h-8 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                alt="user photo"
-              />
+              <div className="w-6 h-6 p-2 rounded-full bg-gray-600 flex items-center justify-center text-white">
+                {currentProfile?.username[0]}
+              </div>
             </button>
 
             {/* Profile icon dropdown menu */}

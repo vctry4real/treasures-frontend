@@ -23,13 +23,18 @@ const DashboardProvider = ({ children }) => {
   const [currentProfile, setCurrentProfile] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [isOnboarding, setIsOnboarding] = useState(null);
 
   const fetchData = useCallback(async (currentUser) => {
     try {
       const profile = await fetchProfile(currentUser);
-
       setCurrentProfile(profile);
+      const { isOnboarding } = profile;
+      if (isOnboarding) {
+        setIsOnboarding(isOnboarding);
+      }
+      return;
     } catch (error) {
       showAlert({ text: 'Error user fetching profile', type: 'danger' });
     }
@@ -52,7 +57,13 @@ const DashboardProvider = ({ children }) => {
     navigate('/');
   };
 
-  const dataToSend = { loading, currentUser, currentProfile, handleLogout };
+  const dataToSend = {
+    loading,
+    currentUser,
+    currentProfile,
+    isOnboarding,
+    handleLogout,
+  };
   return (
     <DashboardContext.Provider value={dataToSend}>
       {children}
