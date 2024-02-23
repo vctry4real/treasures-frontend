@@ -86,7 +86,11 @@ const DashboardDisplay = () => {
               </p>
             </div>
           </div>
+
           <div className="w-full ml-[20px]  md:flex md:ml-0  ">
+
+          <div className="w-full ml-[20px] md:block md:flex ml-0  ">
+
             <button className="p-2 rounded-2xl border w-[120px] bg-slate-100">
               See upcoming
             </button>
