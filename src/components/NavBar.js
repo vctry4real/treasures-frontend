@@ -32,7 +32,9 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={`w-full h-[94px] z-10 fixed ${scrolled ? 'bg-white' : 'bg-transparent'}`}>
+    <div
+      className={`w-full h-[94px] z-10 fixed ${scrolled ? 'bg-white' : 'bg-transparent'}`}
+    >
       <div className="px-2 flex pb-2 justify-between items-center w-full h-full">
         <div className="w-auto h-auto first-letter:text-3xl font-bold mr-4 sm:text-4xl">
           <img src={Treasures} alt="Logo" />
@@ -41,7 +43,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/"
-              smooth={true}
+              smooth={'true'}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
             >
@@ -51,7 +53,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/about"
-              smooth={true}
+              smooth={'true'}
               offset={-200}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
@@ -62,7 +64,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/contact"
-              smooth={true}
+              smooth={'true'}
               offset={50}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700"
@@ -73,7 +75,7 @@ const NavBar = () => {
           <li>
             <Link
               to="/partners"
-              smooth={true}
+              smooth={'true'}
               offset={-50}
               duration={500}
               className="py-2 pl-3 pr-4 text-white md:hover:text-blue-700 "
@@ -84,7 +86,7 @@ const NavBar = () => {
           <li>
             <Link
               to="platforms"
-              smooth={true}
+              smooth={'true'}
               offset={-100}
               duration={500}
               className="py-2 pl-3 pr-4 text-white  md:hover:text-blue-700"
@@ -95,17 +97,17 @@ const NavBar = () => {
         </ul>
 
         <div className="hidden md:flex pr-4 ml-20">
-
           <div className="md:w-full flex flex-row justify-center ">
             <button
               className="flex items-center justify-center font-bold text-primary bg-yellow-400 tracking-wider rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4  "
-              smooth={true} offset={-100} duration={500}
+              smooth={'true'}
+              offset={-100}
+              duration={500}
               onClick={() => {
                 navigate('/register');
               }}
             >
               Get Started{' '}
-
             </button>
           </div>
         </div>
@@ -119,12 +121,18 @@ const NavBar = () => {
         </div>
       </div>
 
-      <ul className={!nav ? 'hidden' : 'absolute bg-zinc-200 w-full flex flex-col mt-2 gap-3 px-8 pt-2'}>
+      <ul
+        className={
+          !nav
+            ? 'hidden'
+            : 'absolute bg-zinc-200 w-full flex flex-col mt-2 gap-3 px-8 pt-2'
+        }
+      >
         <li className="border-b-2 border-zinc-300 w-full">
           <Link
             onClick={handleClose}
             to="/"
-            smooth={true}
+            smooth={'true'}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
           >
@@ -135,7 +143,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/about"
-            smooth={true}
+            smooth={'true'}
             offset={-200}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -147,7 +155,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/contact"
-            smooth={true}
+            smooth={'true'}
             offset={50}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -159,7 +167,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/parners"
-            smooth={true}
+            smooth={'true'}
             offset={-50}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -171,7 +179,7 @@ const NavBar = () => {
           <Link
             onClick={handleClose}
             to="/articles"
-            smooth={true}
+            smooth={'true'}
             offset={-100}
             duration={500}
             className="py-2 pl-3 pr-4 text-gray-900 hover:text-blue-700"
@@ -182,12 +190,12 @@ const NavBar = () => {
 
         <div className="flex flex-col pt-4 items-center justify-center">
           <button className="w-full h-[60px] mb-4 mt-4 border-[3px] border-green-900  rounded-xl bg-[#E5EEEE] font-bold text-primary mr-4">
-            <Link to="/auth" smooth={true} offset={-200}>
+            <Link to="/auth" smooth={'true'} offset={-200}>
               Log in
             </Link>
           </button>
           <button className="w-full h-[60px] mb-4 mt-4 border-none rounded-xl font-bold bg-primary text-white mr-4">
-            <Link to="/auth" smooth={true} offset={-200}>
+            <Link to="/auth" smooth={'true'} offset={-200}>
               Sign up
             </Link>
           </button>

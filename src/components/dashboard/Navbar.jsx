@@ -16,26 +16,7 @@ const ProfileData = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
-  const { showAlert } = useAlertContext();
-  const { currentUser, handleLogout } = useDashboardContext();
-  const [currentProfile, setCurrentProfile] = useState();
-  const { profile, fetchProfile } = useProfile();
-
-  const fetchData = useCallback(async (currentUser) => {
-    try {
-      const profile = await fetchProfile(currentUser);
-
-      setCurrentProfile(profile);
-    } catch (error) {
-      showAlert({ text: 'Error user fetching profile', type: 'danger' });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (currentUser) {
-      fetchData(currentUser);
-    }
-  }, [currentUser]);
+  const { currentProfile, handleLogout } = useDashboardContext();
 
   const toggleNavDropdown = () => {
     setNavOpen(!navOpen);
@@ -133,7 +114,9 @@ const Navbar = () => {
 
           {/* The entire profile menu begins here */}
           <div className="relative flex items-center gap-4">
-            <span className="text-white">Welcome {profile?.fullName}</span>
+            <span className="text-white">
+              Welcome {currentProfile?.username}
+            </span>
             {/* Profile menu image */}
             <button
               type="button"
@@ -141,11 +124,9 @@ const Navbar = () => {
               onClick={toggleDropdown}
             >
               <span className="sr-only">Open user menu</span>
-              <img
-                className="w-8 h-8 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                alt="user photo"
-              />
+              <div className="w-6 h-6 p-2 rounded-full bg-gray-600 flex items-center justify-center text-white">
+                {currentProfile?.username[0]}
+              </div>
             </button>
 
             {/* Profile icon dropdown menu */}

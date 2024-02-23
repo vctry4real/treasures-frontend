@@ -311,7 +311,7 @@ const LandingPage = () => {
 
 
             <button className="flex items-center justify-center text-white bg-transparent rounded-2xl w-full h-[56px] m-10 py-2 px-4 text-md font-bold md:w-full md:h-[60px] md:items-center">
-              Start your Journey{' '}
+              Start your Journey
               <span className="pl-2">
                 <FaArrowRight />
               </span>
@@ -332,7 +332,7 @@ const LandingPage = () => {
                 centered around your child's well-being.
               </p>
               <button className="flex items-center text-gray-900 bg-transparent rounded-2xl w-[193px] h-[56px] mt-4 py-2 text-md font-bold">
-                See the difference{' '}
+                See the difference
                 <span className="pl-2">
                   <FaArrowRight />
                 </span>
@@ -358,7 +358,7 @@ const LandingPage = () => {
                 count.
               </p>
               <button className="flex items-center justify-center text-white bg-[#00A700] rounded-2xl w-[193px] h-[56px] m-10 py-2 px-4">
-                Sign Up Now{' '}
+                Sign Up Now
                 <span className="pl-2">
                   <FaArrowRight />
                 </span>
@@ -423,7 +423,7 @@ const LandingPage = () => {
                   </Swiper>
                 </div>
                 <button className="flex items-center text-gray-900 bg-transparent rounded-2xl w-full h-[56px] mt-4 py-2 text-md font-bold">
-                  Read Testimonials{' '}
+                  Read Testimonial
                   <span className="pl-2">
                     <FaArrowRight />
                   </span>
@@ -447,7 +447,7 @@ const LandingPage = () => {
               </p>
               <div className='w-full flex justify-start'>
                 <button className="flex items-center text-white bg-transparent rounded-2xl w-[193px] h-[56px] py-2 text-md font-bold md:justify-start md:m-0 md:p-0">
-                  Contact us{' '}
+                  Contact us
                   <span className="pl-2">
                     <FaArrowRight />
                   </span>
