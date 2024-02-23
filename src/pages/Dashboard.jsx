@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { Link, Outlet } from 'react-router-dom';
 import { useRef, useState } from 'react';
@@ -17,11 +17,16 @@ import useUser from '../hooks/useUser';
 import useProfile from '../hooks/useProfile';
 
 const Dashboard = () => {
-  const { currentUser, currentProfile, handleLogout } = useDashboardContext();
+  const { isOnboarding } = useDashboardContext();
   const [openModal, setOpenModal] = useState(false);
 
+  useEffect(() => {
+    if (isOnboarding && isOnboarding.valid) {
+      setOpenModal(true);
+    }
+  }, [isOnboarding]);
   return (
-    <DashboardProvider>
+    <>
       <div className="h-screen overflow-hidden">
         <Navbar />
         <div className="flex h-[90%]">
@@ -31,8 +36,8 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <ModalWrapper {...{ openModal, setOpenModal }}>Hello</ModalWrapper>
-    </DashboardProvider>
+      <ModalWrapper {...{ openModal, setOpenModal }}>Onboard</ModalWrapper>
+    </>
   );
 };
 
