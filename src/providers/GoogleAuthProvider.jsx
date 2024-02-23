@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { PrivateApi, PublicApi } from '../api';
 import { useAlertContext } from './AlertProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -15,17 +15,19 @@ const GoogleAuthProvider = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-
+  const [loading, setLoading] = useState(false);
   const { alert, showAlert } = useAlertContext();
 
   const clientId = process.env.REACT_APP_CLIENT_ID;
 
   const handleLoginSuccess = async (credentialResponse, registrationData) => {
     // Send the credential to the backend
+    setLoading(true);
     await sendCredentialToBackend(
       credentialResponse.credential,
       registrationData
     );
+    setLoading(false);
   };
 
   const sendCredentialToBackend = async (credential, registrationData) => {
@@ -44,15 +46,17 @@ const GoogleAuthProvider = ({ children }) => {
           }
         );
 
-        if (status === 200) {
+        if (data) {
           const { msg, ...userData } = data;
 
           dispatch(setUser(userData));
+          console.log(userData);
           showAlert({ text: 'User Authenticated', type: 'success' });
           const { from } = location.state || { from: '/dashboard' };
           navigate(from);
         }
       } catch (error) {
+        console.log(error);
         console.error('Error sending credential to backend:', error);
       }
     }
