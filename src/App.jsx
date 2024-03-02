@@ -65,7 +65,7 @@ function App() {
             path="/childprofilesuccess"
             element={<ChildProfileSuccess />}
           />
-          {/* <Route path="/doctorprofile" element={<DoctorPage />} /> */}
+          <Route path="/doctorprofile" element={<DoctorPage />} />
 
           <Route path="/auth" element={<Auth />} />
           <Route path="/register" element={<RegisterUser />} />
